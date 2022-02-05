@@ -120,5 +120,25 @@ def play_game():
         print("To quit the game, select 'Q' .")
         play_game()
 
-
+    # game loop 
+    while True:
+        print_field()
+        # loops through user input for selecting squares
+        while True:
+            # loops throgh user inputs
+            # check if the square is taken and if the input is valid
+            # give feedback to the user if the input is not valid
+            # give feedbck to the user if the square is taken
+            try:
+                choice = int(input("Please select an empty square for your next move as" + player_symbol_choice + ". \n"))
+                if choice in range(1,10):
+                    if field[choice] == " ":
+                        field[choice] = player_symbol_choice
+                        break
+                    else:
+                        print("Unfortunately, that space is taken! ")
+                else:
+                    print("Invalid input. Please select a number between 1-9. \n")
+            except ValueError:
+                print("Please enter a valid number!")
 play_game()
