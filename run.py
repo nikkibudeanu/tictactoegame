@@ -4,8 +4,9 @@
 
 # imports
 import random 
+
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-xoro = ["X", "O"]
+xoro = ["x", "o"]
 winner = None
 play_game = True
 
@@ -135,6 +136,17 @@ def select_game():
         else: 
             print("Invalid input, please select '1' to play against the computer, '2' to play a 2 player game or 'q' to quit the game")
 
+def computer_choice(field, player2_symbol_choice):
+    """
+    Loops to get a random computer choice within the field. 
+    Checks if the choice is an empty string within the list and place the symbol.
+    Break the loop.
+    """
+    while True:
+        # randint method learnt on  https://www.w3schools.com/python/ref_random_randint.asp
+        computer_choice = random.randint(1,9)
+        if field[computer_choice] == " ":
+            return computer_choice
 
 def play_game():
     """
