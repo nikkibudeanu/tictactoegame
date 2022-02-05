@@ -6,7 +6,21 @@ player = "X"
 winner = None
 play_game = True
 
-
+# game name
+def print_game_name():
+  """
+  Prints the game name
+  """
+print(
+        """
+         _ _ _   __     ____       _ _ _      __        ____         _ _ _    ____    _____
+        |_   _| |  |  /   __|     |_   _|    /  \     /   __|       |_   _|  /    \  |  __ |
+          | |   |  | (   /          | |     / /\ \   (   /            | |   |  __  | | |__
+          | |   |  |  \  \__        | |    / ==== \   \  \__          | |   | |__| | | |__
+          |_|   |__|   \____|       |_|   / /    \ \   \____|         |_|    \____/  |_____|
+                            
+        """
+  )
 
 
 # game field 
@@ -24,4 +38,11 @@ def print_field(field):
     print(" " + field[7] + " | " + field[8] + " | " + field[9] + "  " +
           " "*10 + " " + "7" + " | " + "8" + " | " + "9" + "  ")
     print("\n")
-print_field(field)
+
+# username
+def username():
+    """
+    Ask users to input their name.
+    """
+    print("What is your name?")
+    username = input()
