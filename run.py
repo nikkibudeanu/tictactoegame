@@ -46,3 +46,29 @@ def username():
     """
     print("What is your name?")
     username = input()
+
+# main function
+def game_running():
+  """
+  The main function
+  """ 
+  print_game_name()
+  print("Please select one of the following options.")
+  print("1. Play our game")
+  print("2. How to play")
+  print("3. Print scores")
+  print("Q. Quit game")
+  
+  # condition to loop through player inputs and go to the next menu
+  while True:
+    player_choice = input().strip().lower()
+    if player_choice == "1":
+      which_game()
+    elif player_choice == "2":
+      how_to_play()
+    elif player_choice == "3":
+      print_scores()
+    elif player_choice == "q":
+      quit()
+
+game_running()
