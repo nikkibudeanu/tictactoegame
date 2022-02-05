@@ -9,8 +9,11 @@ play_game = True
 
 
 
-# game field
+# game field 
 def print_field(field):
+    """
+    Print the field for the game and sets position for the items in the list.
+    """
     print(" Game Field" + " "*9 + "Reference field")
     print(" " + field[1] + " | " + field[2] + " | " + field[3] + "  " +
           " "*10 + " " + "1" + " | " + "2" + " | " + "3" + "  ")
