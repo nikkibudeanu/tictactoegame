@@ -71,4 +71,29 @@ def game_running():
     elif player_choice == "q":
       quit()
 
+
+# how to play
+def how_to_play():
+  """
+  How to play the game.
+  """
+  print("1. You will play on the field composed by 3 by 3 squares")
+  print("2. Select your symbol betweeen 'X' and 'O'.")
+  print("3. Your opponent gets the other symbol once you pick one")
+  print("4. Use the reference field to find out which number is asigned to the box you want to select.")
+  print("5. The player who gets 3 of his symbols in a row is the winner.")
+  print("6. If nobody has 3 marks in a row, the game is over and has no winners.")
+  print("3. If you want to return to the main menu - enter 0. If you want to quit the game - enter 'q'")
+
+  # condition to loop through user input
+  while True:
+    player_choice = input().strip().lower()
+    if player_choice == "0":
+      main()
+    elif player_choice == "q":
+      quit()
+    else:
+      print(" Incorrect input, please select '0' or 'q'.\n")
+
+
 game_running()
