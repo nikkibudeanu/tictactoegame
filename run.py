@@ -2,9 +2,10 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-player = "X"
+xoro = ["x", "o"]
 winner = None
 play_game = True
+
 
 # game name
 def print_game_name():
@@ -38,6 +39,8 @@ def print_field(field):
     print(" " + field[7] + " | " + field[8] + " | " + field[9] + "  " +
           " "*10 + " " + "7" + " | " + "8" + " | " + "9" + "  ")
     print("\n")
+
+
 
 # username
 def username():
@@ -95,5 +98,8 @@ def how_to_play():
     else:
       print(" Incorrect input, please select '0' or 'q'.\n")
 
-
+def play_game():
+    """
+    The main game function 
+    """
 game_running()
