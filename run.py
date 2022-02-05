@@ -107,6 +107,31 @@ def how_to_play():
     else:
       print(" Incorrect input, please select '0' or 'q'.\n")
 
+# select game with the computer or with a player
+def select_game():
+    """
+    Enables user to play against computer or another player. 
+    """
+    print("Select which type of game would you like to play: ")
+    print("1. Play the game against the computer. ")
+    print("2. 2 player game. ")
+    print("Q. Quit game. ")
+    # loops through user input
+    while True:
+        player_game_choice = input().strip().lower()
+        global game_level
+        if player_game_choice == "1":
+            game_level = 1
+            play_game
+        elif player_game_choice == "2":
+            game_level = 2
+            play_game()
+        elif player_game_choice == "q":
+            quit_game()
+        else: 
+            print("Invalid input, please select '1' to play against the computer, '2' to play a 2 player game or 'q' to quit the game")
+
+
 def play_game():
     """
     The main game function 
