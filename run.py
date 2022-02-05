@@ -115,6 +115,10 @@ def play_game():
         player2_symbol_choice == xoro[0]
     elif player2_symbol_choice == "q":
         quit_game()
+    else:
+        print("Invalid input! Please select either 'X' or 'O'. \n")
+        print("To quit the game, select 'Q' .")
+        play_game()
 
 
 play_game()
