@@ -40,7 +40,9 @@ def print_field(field):
           " "*10 + " " + "7" + " | " + "8" + " | " + "9" + "  ")
     print("\n")
 
-
+def quit_game():
+    print("Thank you" + username + "for playing the game!")
+    quit()
 
 # username
 def username():
@@ -102,4 +104,17 @@ def play_game():
     """
     The main game function 
     """
-game_running()
+    # User selects the prefered symbol : "X" or "O". 
+    # Let the user know which symbol he selected.
+    # Restart game if the user wants to change the symbol.
+    print("Which symbol do you prefer, " + xoro[0] + " or " + xoro[1]+ " ? \n ")
+    player_symbol_choice =  input().lower().strip()
+    if player_symbol_choice == xoro[0]:
+        player2_symbol_choice == xoro[1]
+    elif player_symbol_choice == xoro[1]:
+        player2_symbol_choice == xoro[0]
+    elif player2_symbol_choice == "q":
+        quit_game()
+
+
+play_game()
