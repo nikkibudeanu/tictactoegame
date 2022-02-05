@@ -2,7 +2,7 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-xoro = ["x", "o"]
+xoro = ["X", "O"]
 winner = None
 play_game = True
 
@@ -39,6 +39,13 @@ def print_field(field):
     print(" " + field[7] + " | " + field[8] + " | " + field[9] + "  " +
           " "*10 + " " + "7" + " | " + "8" + " | " + "9" + "  ")
     print("\n")
+
+def reset_field():
+    """
+    Reset field so the user is able to start a new game
+    """
+    field.clear()
+    field.extend([" ", " ", " ", " ", " ", " ", " ", " ", " ", " "])
 
 def quit_game():
     print("Thank you" + username + "for playing the game!")
