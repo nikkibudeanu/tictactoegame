@@ -144,7 +144,7 @@ def computer_choice(field, player2_symbol_choice):
     """
     while True:
         # randint method learnt on  https://www.w3schools.com/python/ref_random_randint.asp
-        computer_choice = random.randint(1,9)
+        computer_choice = random.randint(1, 9)
         if field[computer_choice] == " ":
             return computer_choice
 

@@ -1,1 +1,1 @@
-![chart]((media/chart.jpeg )
+![chart](media/chart.jpeg )
