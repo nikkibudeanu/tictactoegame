@@ -206,7 +206,40 @@ def play_game():
     if draw(field):
       print("Oops! 2 winners! It's a draw!")
       return_to_main_page()
-    
+   # check the game type and is vs computer, generate a random move.
+    if game_level == 1:
+      choice = computer_choice(field, player2_symbol_choice)
+      field[choice] = player2_symbol_choice
+
+      # check if winner 
+      if winner(field, player2_symbol_choice):
+        print_field()
+        print("Computer is the winner!")
+        return_to_main_page()
+
+      # check if draw 
+      if draw(field):
+        print("Oops! 2 winners! It's a draw!")
+        return_to_main_page()
+    # check if the game type is vs another player
+    if game_level == 2:
+      # loop that asks for a symbol input.
+      while True:
+        try:
+          choice = int(input("Player TWO, please select an empty square for yout next move as" + player2_symbol_choice))
+          if choice in range(1,10):
+                    if field[choice] == " ":
+                        field[choice] = player_symbol_choice
+                        break
+                      else:
+                        print("Unfortunately, that space is taken! ") 
+                  else:
+                    print("Invalid input. Please select a number between 1-9. \n")
+            except ValueError:
+                print("Please enter a valid number!")
+
+         # check is the 2nd player has won
+         
    
 
 def return_to_main_page():
