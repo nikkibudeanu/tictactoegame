@@ -189,12 +189,25 @@ def play_game():
                     print("Invalid input. Please select a number between 1-9. \n")
             except ValueError:
                 print("Please enter a valid number!")
-    # check who has own the game
+    # check who has won the game
     if winner(field, player_symbol_choice):
       print_field()
       if game_level == 1:
         print("Congratulations! You win!")
         return_to_main_page()
+      elif game_level == 2:
+        print("Congratulations! Player one wins! ")
+        return_to_main_page()
+      else: 
+        return None
+    print_field()
+    # draw method learnt here - https://www.geeksforgeeks.org/wand-drawing-function-in-python/
+    # function to check if the frid is full
+    if draw(field):
+      print("Oops! 2 winners! It's a draw!")
+      return_to_main_page()
+    
+   
 
 def return_to_main_page():
   """
