@@ -178,8 +178,8 @@ def play_game():
             # give feedback to the user if the input is not valid
             # give feedbck to the user if the square is taken
             try:
-                choice = int(input("Please select an empty square for your next move as" + player_symbol_choice + ". \n"))
-                if choice in range(1,10):
+              choice = int(input("Please select an empty square for your next move as" + player_symbol_choice + ". \n"))
+              if choice in range(1,10):
                     if field[choice] == " ":
                         field[choice] = player_symbol_choice
                         break
@@ -228,18 +228,29 @@ def play_game():
         try:
           choice = int(input("Player TWO, please select an empty square for yout next move as" + player2_symbol_choice))
           if choice in range(1,10):
-                    if field[choice] == " ":
-                        field[choice] = player_symbol_choice
-                        break
-                      else:
-                        print("Unfortunately, that space is taken! ") 
-                  else:
-                    print("Invalid input. Please select a number between 1-9. \n")
-            except ValueError:
-                print("Please enter a valid number!")
+            if field[choice] == " ":
+              field[choice] = player_symbol_choice
+              break
+            else:
+              print("Unfortunately, that space is taken! ") 
+          else:
+            print("Invalid input. Please select a number between 1-9. \n")
+      except ValueError:
+        print("Please enter a valid number!")
 
          # check is the 2nd player has won
-         
+        if winner(field, player2_symbol_choice):
+           print_field()
+           print("Congratulations! Player two" + player2_symbol_choice + "wins! ")
+           return_to_main_page()
+        print_field()
+
+        # check if draw
+        if draw(field):
+          print("Oops! 2 winners! It's a draw!")
+          return_to_main_page()
+
+
    
 
 def return_to_main_page():
