@@ -189,4 +189,26 @@ def play_game():
                     print("Invalid input. Please select a number between 1-9. \n")
             except ValueError:
                 print("Please enter a valid number!")
+    # check who has own the game
+    if winner(field, player_symbol_choice):
+      print_field()
+      if game_level == 1:
+        print("Congratulations! You win!")
+        return_to_main_page()
+
+def return_to_main_page():
+  """
+  User has to select to go back to the main page or quit the game.
+  """
+  print("Would you like to play again?")
+  print("Select '1' if yes or 'q' if you would like to quit the game. \n ")
+  while True:
+    player_choice = input().strip()
+    if player_choice == "1":
+      reset_field()
+      game_running()
+    elif player_choice == "q":
+      quit_game()
+    else:
+      print("Invalid input!Please try again!")
 play_game()
