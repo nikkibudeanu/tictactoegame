@@ -7,8 +7,7 @@ import random
 
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 xoro = ["x", "o"]
-winner = None
-play_game = True
+
 
 
 
@@ -30,7 +29,7 @@ print(
 
 
 # game field 
-def print_field(field):
+def print_field():
     """
     Print the field for the game and sets position for the items in the list.
     """
@@ -57,12 +56,15 @@ def quit_game():
     quit()
 
 # username
+
 def username():
     """
     Ask users to input their name.
     """
+    global username
     print("What is your name?")
     username = input()
+    game_running()
 
 # main function
 def game_running():
@@ -86,7 +88,9 @@ def game_running():
     elif player_choice == "3":
       print_scores()
     elif player_choice == "q":
-      quit()
+      quit_game()
+    else: 
+      print("Invalid input. Please select from the options above.")
 
 
 # how to play
@@ -106,7 +110,7 @@ def how_to_play():
   while True:
     player_choice = input().strip().lower()
     if player_choice == "0":
-      main()
+      game_running()
     elif player_choice == "q":
       quit()
     else:
@@ -127,7 +131,7 @@ def select_game():
         global game_level
         if player_game_choice == "1":
             game_level = 1
-            play_game
+            play_game()
         elif player_game_choice == "2":
             game_level = 2
             play_game()
@@ -135,7 +139,8 @@ def select_game():
             quit_game()
         else: 
             print("Invalid input, please select '1' to play against the computer, '2' to play a 2 player game or 'q' to quit the game")
-def winner(field, username):
+
+def champion(field, username):
   """
   Function to determine who has won the game. returns True or False.
   """
@@ -148,8 +153,20 @@ def winner(field, username):
        (field[1] == username and field[5] == username and field[9] == username) or \
        (field[3] == username and field[5] == username and field[7] == username):
         return True
-    else:
+  else:
         return False
+
+def draw(field):
+  """
+  Function to check if there are any squares left.Returns false if there are more than 1 square left
+  and true if not(game ends with no winners).
+  """
+  if field.count(" ") > 1:
+    return False
+  else:
+    return True
+
+
 def computer_choice(field, player2_symbol_choice):
     """
     Loops to get a random computer choice within the field. 
@@ -172,9 +189,9 @@ def play_game():
     print("Which symbol do you prefer, " + xoro[0] + " or " + xoro[1]+ " ? \n ")
     player_symbol_choice =  input().lower().strip()
     if player_symbol_choice == xoro[0]:
-        player2_symbol_choice == xoro[1]
+        player2_symbol_choice = xoro[1]
     elif player_symbol_choice == xoro[1]:
-        player2_symbol_choice == xoro[0]
+        player2_symbol_choice = xoro[0]
     elif player2_symbol_choice == "q":
         quit_game()
     else:
@@ -204,7 +221,7 @@ def play_game():
             except ValueError:
               print("Please enter a valid number!")
     # check who has won the game
-    if winner(field, player_symbol_choice):
+    if champion(field, player_symbol_choice):
       print_field()
       if game_level == 1:
         print("Congratulations! You win!")
@@ -226,7 +243,7 @@ def play_game():
       field[choice] = player2_symbol_choice
 
       # check if winner 
-      if winner(field, player2_symbol_choice):
+      if champion(field, player2_symbol_choice):
         print_field()
         print("Computer is the winner!")
         return_to_main_page()
@@ -243,7 +260,7 @@ def play_game():
           choice = int(input("Player TWO, please select an empty square for yout next move as" + player2_symbol_choice))
           if choice in range(1,10):
             if field[choice] == " ":
-              field[choice] = player_symbol_choice
+              field[choice] = player2_symbol_choice
               break
             else:
               print("Unfortunately, that space is taken! ") 
@@ -253,7 +270,7 @@ def play_game():
           print("Please enter a valid number!")
 
          # check is the 2nd player has won
-        if winner(field, player2_symbol_choice):
+        if champion(field, player2_symbol_choice):
            print_field()
            print("Congratulations! Player two" + player2_symbol_choice + "wins! ")
            return_to_main_page()
@@ -279,4 +296,5 @@ def return_to_main_page():
       quit_game()
     else:
       print("Invalid input!Please try again!")
-play_game()
+
+username()
