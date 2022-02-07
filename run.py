@@ -80,7 +80,7 @@ def game_running():
   while True:
     player_choice = input().strip().lower()
     if player_choice == "1":
-      which_game()
+      game_type()
     elif player_choice == "2":
       how_to_play()
     elif player_choice == "3":
@@ -184,11 +184,11 @@ def play_game():
                         field[choice] = player_symbol_choice
                         break
                     else:
-                        print("Unfortunately, that space is taken! ")
-                else:
-                    print("Invalid input. Please select a number between 1-9. \n")
+                      print("Unfortunately, that space is taken! ")
+              else:
+                print("Invalid input. Please select a number between 1-9. \n")
             except ValueError:
-                print("Please enter a valid number!")
+              print("Please enter a valid number!")
     # check who has won the game
     if winner(field, player_symbol_choice):
       print_field()
@@ -235,8 +235,8 @@ def play_game():
               print("Unfortunately, that space is taken! ") 
           else:
             print("Invalid input. Please select a number between 1-9. \n")
-      except ValueError:
-        print("Please enter a valid number!")
+        except ValueError:
+          print("Please enter a valid number!")
 
          # check is the 2nd player has won
         if winner(field, player2_symbol_choice):
@@ -249,9 +249,6 @@ def play_game():
         if draw(field):
           print("Oops! 2 winners! It's a draw!")
           return_to_main_page()
-
-
-   
 
 def return_to_main_page():
   """
