@@ -80,7 +80,7 @@ def game_running():
   while True:
     player_choice = input().strip().lower()
     if player_choice == "1":
-      game_type()
+      select_game()
     elif player_choice == "2":
       how_to_play()
     elif player_choice == "3":
@@ -135,7 +135,21 @@ def select_game():
             quit_game()
         else: 
             print("Invalid input, please select '1' to play against the computer, '2' to play a 2 player game or 'q' to quit the game")
-
+def winner(field, username):
+  """
+  Function to determine who has won the game. returns True or False.
+  """
+  if (field[1] == username and field2[2] == username and field3[3] == username) or \
+       (field[4] == username and field[5] == username and field[6] == username) or \
+       (field[7] == username and field[8] == username and field[9] == username) or \
+       (field[1] == username and field[4] == username and field[7] == username) or \
+       (field[2] == username and field[5] == username and field[8] == username) or \
+       (field[3] == username and field[6] == username and field[9] == username) or \
+       (field[1] == username and field[5] == username and field[9] == username) or \
+       (field[3] == username and field[5] == username and field[7] == username):
+        return True
+    else:
+        return False
 def computer_choice(field, player2_symbol_choice):
     """
     Loops to get a random computer choice within the field. 
