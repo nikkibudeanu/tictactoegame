@@ -52,7 +52,7 @@ def reset_field():
     field.extend([" ", " ", " ", " ", " ", " ", " ", " ", " ", " "])
 
 def quit_game():
-    print("Thank you" + username + "for playing the game!")
+    print("Thank you " + username + " for playing the game!")
     quit()
 
 # username
@@ -112,7 +112,7 @@ def how_to_play():
     if player_choice == "0":
       game_running()
     elif player_choice == "q":
-      quit()
+      quit_game()
     else:
       print(" Incorrect input, please select '0' or 'q'.\n")
 
@@ -145,16 +145,16 @@ def champion(field, username):
   Function to determine who has won the game. returns True or False.
   """
   if (field[1] == username and field[2] == username and field[3] == username) or \
-       (field[4] == username and field[5] == username and field[6] == username) or \
-       (field[7] == username and field[8] == username and field[9] == username) or \
-       (field[1] == username and field[4] == username and field[7] == username) or \
-       (field[2] == username and field[5] == username and field[8] == username) or \
-       (field[3] == username and field[6] == username and field[9] == username) or \
-       (field[1] == username and field[5] == username and field[9] == username) or \
-       (field[3] == username and field[5] == username and field[7] == username):
-        return True
+     (field[4] == username and field[5] == username and field[6] == username) or \
+     (field[7] == username and field[8] == username and field[9] == username) or \
+     (field[1] == username and field[4] == username and field[7] == username) or \
+     (field[2] == username and field[5] == username and field[8] == username) or \
+     (field[3] == username and field[6] == username and field[9] == username) or \
+     (field[1] == username and field[5] == username and field[9] == username) or \
+     (field[3] == username and field[5] == username and field[7] == username):
+    return True
   else:
-        return False
+    return False
 
 def draw(field):
   """
@@ -186,13 +186,13 @@ def play_game():
     # User selects the prefered symbol : "X" or "O". 
     # Let the user know which symbol he selected.
     # Restart game if the user wants to change the symbol.
-    print("Which symbol do you prefer, " + xoro[0] + " or " + xoro[1]+ " ? \n ")
+    print("Which symbol do you prefer, " + xoro[0] + " or " +  xoro[1] + " ? \n ")
     player_symbol_choice =  input().lower().strip()
     if player_symbol_choice == xoro[0]:
-        player2_symbol_choice = xoro[1]
+        opponent_symbol_choice = xoro[1]
     elif player_symbol_choice == xoro[1]:
-        player2_symbol_choice = xoro[0]
-    elif player2_symbol_choice == "q":
+        opponent_symbol_choice = xoro[0]
+    elif player_symbol_choice == "q":
         quit_game()
     else:
         print("Invalid input! Please select either 'X' or 'O'. \n")
@@ -209,7 +209,7 @@ def play_game():
             # give feedback to the user if the input is not valid
             # give feedbck to the user if the square is taken
             try:
-              choice = int(input("Please select an empty square for your next move as" + player_symbol_choice + ". \n"))
+              choice = int(input("Please select an empty square for your next move as " + player_symbol_choice + ". \n"))
               if choice in range(1,10):
                     if field[choice] == " ":
                         field[choice] = player_symbol_choice
@@ -239,11 +239,11 @@ def play_game():
       return_to_main_page()
    # check the game type and is vs computer, generate a random move.
     if game_level == 1:
-      choice = computer_choice(field, player2_symbol_choice)
-      field[choice] = player2_symbol_choice
+      choice = computer_choice(field, opponent_symbol_choice)
+      field[choice] = opponent_symbol_choice
 
       # check if winner 
-      if champion(field, player2_symbol_choice):
+      if champion(field, opponent_symbol_choice):
         print_field()
         print("Computer is the winner!")
         return_to_main_page()
@@ -260,7 +260,7 @@ def play_game():
           choice = int(input("Player TWO, please select an empty square for yout next move as" + player2_symbol_choice))
           if choice in range(1,10):
             if field[choice] == " ":
-              field[choice] = player2_symbol_choice
+              field[choice] = opponent_symbol_choice
               break
             else:
               print("Unfortunately, that space is taken! ") 
@@ -270,9 +270,9 @@ def play_game():
           print("Please enter a valid number!")
 
          # check is the 2nd player has won
-        if champion(field, player2_symbol_choice):
+        if champion(field, opponent_symbol_choice):
            print_field()
-           print("Congratulations! Player two" + player2_symbol_choice + "wins! ")
+           print("Congratulations! Player two" + opponent_symbol_choice + "wins! ")
            return_to_main_page()
         print_field()
 
