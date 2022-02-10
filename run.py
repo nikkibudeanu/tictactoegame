@@ -3,29 +3,41 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 # imports
+
 import random 
 import gspread 
 from google.oauth2.service_account import Credentials
 
-#Google scope
+# Google scope
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
     ]
 
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('tictactoe')
+
+game_data = SHEET.worksheet('game')
+
+data = game_data.get_all_values()
+
+print(data)
 
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 xoro = ["x", "o"]
 
-
-
-
 # game name
+
+
 def print_game_name():
   """
   Prints the game name
   """
+
+
 print(
         """
          _ _ _   __     ____       _ _ _      __        ____         _ _ _    ____    _____
@@ -270,7 +282,7 @@ def play_game():
             while True:
                 try:
                     choice = int(input(f"Player TWO, it's your turn! Select an empty score for your next move as " + opponent_symbol_choice + "." ))
-                    if choice in range(1, 10)
+                    if choice in range(1, 10):
                         if field[choice] == " ":
                             field[choice] = opponent_symbol_choice
                             break
