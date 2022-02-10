@@ -103,6 +103,7 @@ def count_wins():
   global count_win
   count_win += 1
   data.update_cell(new_col_number, 3, count_win)
+  count_total_games()
 
 # function to count draw games
 def count_draws():
@@ -112,6 +113,7 @@ def count_draws():
   global count_draw
   count_draw += 1
   data.update_cell(new_col_number, 2, count_draw)
+  count_total_games()
 
 # function to count lost games
 def count_loses():
@@ -121,8 +123,17 @@ def count_loses():
   global count_lose
   count_lose += 1
   data.update_cell(new_col_number, 4, count_lose)
-  
+  count_total_games()
 
+
+# function to count the number of games of each user
+def count_total_games():
+  """
+  Counts the amount of games played by each user and updates the google sheet. 
+  """
+  global count_games
+  count_games = count_win + count_draw + count_lose
+  data.update_cell(new_col_number, 5, count_games)
 
 # main function
 def game_running():
