@@ -24,7 +24,11 @@ game_data = SHEET.worksheet('game')
 
 data = game_data.get_all_values()
 
-print(data)
+# variables to push data to the spreadsheet
+count_games = 0
+count_win = 0
+count_lose = 0
+count_draw = 0 
 
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 xoro = ["x", "o"]
