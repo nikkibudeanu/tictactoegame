@@ -3,10 +3,10 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 # imports
-
 import random 
 import gspread 
 from google.oauth2.service_account import Credentials
+
 
 # Google scope
 SCOPE = [
@@ -20,15 +20,17 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('tictactoe')
 
-game_data = SHEET.worksheet('game')
+data = SHEET.worksheet('game')
 
-data = game_data.get_all_values()
+
 
 # variables to push data to the spreadsheet
 count_games = 0
 count_win = 0
 count_lose = 0
 count_draw = 0 
+count_x = 0
+count_o = 0
 
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 xoro = ["x", "o"]
@@ -135,6 +137,20 @@ def count_total_games():
   count_games = count_win + count_draw + count_lose
   data.update_cell(new_col_number, 5, count_games)
 
+# times played as x
+def count_x_games():
+  """
+  Counts the amount of games played by the user as 'x'.
+  """
+  global count_x
+  if player_symbol_choice == xoro[0]:
+    count_x += 1
+    data.update_cell(new_col_number, 6, count_x)
+
+
+# times played as o
+
+
 # main function
 def game_running():
   """
@@ -185,6 +201,27 @@ def how_to_play():
     else:
       print(" Incorrect input, please select '0' or 'q'.\n")
 
+# function to print scores
+def print_scores():
+  """
+  Function to print out user's score.
+  """
+  print("Here is your score: ")
+  print("You have played " + str(count_games) + " times!")
+  print("You have won " + str(count_win) + " times!")
+  print("Draw games: " + str(count_draw))
+  print("You have lost " + str(count_lose) + " times!")
+  print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'")
+
+  # loop to quit or return to the main menu depending on user input
+  while True:
+    player_choice = input().strip().lower()
+    if player_choice == "0":
+      game_running()
+    elif player_choice == "q":
+      quit_game()
+    else:
+      print("Invalid input, please select '0' or 'q'!")
 # select game with the computer or with a player
 def select_game():
     """
@@ -257,9 +294,11 @@ def play_game():
     # or 'O'. Prints out to user message that wrong symbol has been
     # chosen, if so restarts the game.
     print(f"Do you want to play as  '{xoro[0]}' or  '{xoro[1]}?' \n")
+    global player_symbol_choice
     player_symbol_choice = input().lower().strip()
     if player_symbol_choice == xoro[0]:
         opponent_symbol_choice = xoro[1]
+        count_x_games()
     elif player_symbol_choice == xoro[1]:
         opponent_symbol_choice = xoro[0]
     elif player_symbol_choice == "q":
@@ -292,6 +331,7 @@ def play_game():
         # condition to check if the user won : two different feedback messages depending on the game type.
         if champion(field, player_symbol_choice):
             print_field()
+            count_wins()
             if game_level == 1:
                 print("You win! Congratulations")
                 return_to_main_page()
@@ -304,6 +344,7 @@ def play_game():
         print_field()
         # condition to check if the grid is full to declare no winners.
         if draw(field):
+            count_draws()
             print("2 winners! It's a draw!")
             return_to_main_page()
 
@@ -314,12 +355,14 @@ def play_game():
 
             # condition to check if the computer wins
             if champion(field, opponent_symbol_choice):
+                count_loses()
                 print_field()
                 print("Computer wins!")
                 return_to_main_page()
 
             # condition to check if it's a draw.
             if draw(field):
+                count_draws()
                 print("2 winners! It's a draw!")
                 return_to_main_page()
 
@@ -344,6 +387,7 @@ def play_game():
             # condition to check if the 2nd player wins
             if champion(field, opponent_symbol_choice):
                 print_field()
+                count_loses()
                 print(f"Player two '{opponent_symbol_choice}' is the winner! Congratulations")
                 return_to_main_page()
 
@@ -351,8 +395,10 @@ def play_game():
 
             # condition to check if it's a draw
             if draw(field):
+                count_draws()
                 print("2 winners! It's a draw!")
                 return_to_main_page()
+
 
 def return_to_main_page():
   """
