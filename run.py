@@ -95,6 +95,7 @@ def username():
     data.update_cell(new_col_number, 1, username)
     game_running()
 
+# function to count wins
 def count_wins():
   """
   Update the spreadsheet win column with number of wins of each user.
@@ -103,6 +104,7 @@ def count_wins():
   count_win += 1
   data.update_cell(new_col_number, 3, count_win)
 
+# function to count draw games
 def count_draws():
   """
   Update the spreadsheet draw column with number of draws of the user. 
@@ -110,6 +112,17 @@ def count_draws():
   global count_draw
   count_draw += 1
   data.update_cell(new_col_number, 2, count_draw)
+
+# function to count lost games
+def count_loses():
+  """
+  Update the spreadsheet loss column with the number of losses for each user.
+  """
+  global count_lose
+  count_lose += 1
+  data.update_cell(new_col_number, 4, count_lose)
+  
+
 
 # main function
 def game_running():
