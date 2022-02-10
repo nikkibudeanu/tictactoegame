@@ -95,6 +95,15 @@ def username():
     data.update_cell(new_col_number, 1, username)
     game_running()
 
+def count_wins():
+  """
+  Update the spreadsheet win column with number of wins of each user.
+  """
+  global count_win
+  count_win += 1
+  data.update_cell(new_col_number, 3, count_win)
+
+
 # main function
 def game_running():
   """
