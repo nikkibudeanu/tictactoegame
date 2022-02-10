@@ -88,8 +88,11 @@ def username():
     Ask users to input their name.
     """
     global username
+    global new_col_number
     print("What is your name?")
     username = input()
+    new_col_number = len(data.col_values(1)) + 1
+    data.update_cell(new_col_number, 1, username)
     game_running()
 
 # main function
