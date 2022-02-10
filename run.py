@@ -103,6 +103,13 @@ def count_wins():
   count_win += 1
   data.update_cell(new_col_number, 3, count_win)
 
+def count_draws():
+  """
+  Update the spreadsheet draw column with number of draws of the user. 
+  """
+  global count_draw
+  count_draw += 1
+  data.update_cell(new_col_number, 2, count_draw)
 
 # main function
 def game_running():
