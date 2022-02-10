@@ -4,6 +4,16 @@
 
 # imports
 import random 
+import gspread 
+from google.oauth2.service_account import Credentials
+
+#Google scope
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
 
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 xoro = ["x", "o"]
@@ -202,11 +212,9 @@ def play_game():
     # The main game loop
     while True:
         print_field()
-        # The main player loop that loops through input.
+        # loop for the main player input
         while True:
-            # Loops through until correct input from user has been
-            # given. Checks if the space is taken and prints out message
-            # to user if the input or space is taken.
+            # function to add input and check if the square is empty and if the input is valid.
             try:
                 choice = int(input(f"Please choose an empty space for "
                                    f"your next move as '{player_symbol_choice}'. \n"))
@@ -222,8 +230,7 @@ def play_game():
             except ValueError:
                 print("Please enter a valid number!")
 
-        # Checks if player has won the game. Two different print outputs
-        # depending on the game that has been selected.
+        # condition to check if the user won : two different feedback messages depending on the game type.
         if champion(field, player_symbol_choice):
             print_field()
             if game_level == 1:
@@ -236,60 +243,54 @@ def play_game():
                 return None
 
         print_field()
-        # Checks if the grid is full. If yes then prints out message and
-        # calls function return_to_menu to let user choose if he wants
-        # to quit the script or go back to menu.
+        # condition to check if the grid is full to declare no winners.
         if draw(field):
             print("2 winners! It's a draw!")
             return_to_main_page()
 
-        # Check if the game level is vs computer. If yes then generates
-        # a random computer move and sets that grid to computers symbol.
+        # condition to check if the game type is against the computer.
         if game_level == 1:
             choice = computer_choice(field, opponent_symbol_choice)
             field[choice] = opponent_symbol_choice
 
-            # Checks for computer win same as previously for player.
+            # condition to check if the computer wins
             if champion(field, opponent_symbol_choice):
                 print_field()
                 print("Computer wins!")
                 return_to_main_page()
 
-            # Checks for a draw as the player above.
+            # condition to check if it's a draw.
             if draw(field):
                 print("2 winners! It's a draw!")
                 return_to_main_page()
 
-        # Checks if the game level is against another player.
+        # condition to check if the game type is against a second player. 
         if game_level == 2:
-            # Main 2nd player loop that asks for a grid input to place
-            # correct symbol onto grid. Same function as the main player
+            # loop for 2nd player to place its symbol in an empty square
             while True:
                 try:
-                    choice = int(input(f"Player TWO, please choose an empty "
-                                       f"square for your next move as "
-                                       f"'{opponent_symbol_choice}'.\n"))
-                    if choice in range(1, 10):
+                    choice = int(input(f"Player TWO, it's your turn! Select an empty score for your next move as " + opponent_symbol_choice + "." ))
+                    if choice in range(1, 10)
                         if field[choice] == " ":
                             field[choice] = opponent_symbol_choice
                             break
                         else:
                             print("Please select an empty square!")
                     else:
-                        print("Invalid input. Please use the numbers "
+                        print("Invalid input. Please select the numbers "
                               "between 1-9.\n")
                 except ValueError:
-                    print("Invalid input. Please enter a valid input")
+                    print("Invalid input.")
 
-            # Checks for 2nd player win.
+            # condition to check if the 2nd player wins
             if champion(field, opponent_symbol_choice):
                 print_field()
-                print(f"Player two '{opponent_symbol}' wins! Congratulations")
+                print(f"Player two '{opponent_symbol_choice}' is the winner! Congratulations")
                 return_to_main_page()
 
             print_field()
 
-            # Checks for a draw.
+            # condition to check if it's a draw
             if draw(field):
                 print("2 winners! It's a draw!")
                 return_to_main_page()
