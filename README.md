@@ -16,7 +16,9 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
      - <a href="#user-goals">User goals</a>
      - <a href="#owner-goals">Game owner goals</a>
   - <a href="#scope">SCOPE</a>
-- <a href="#flowchart">Flow Chart</a>
+  - <a href="#structure">STRUCTURE</a>
+  - <a href="#skeleton">SKELETON</a>
+     - <a href="#flowchart">Flow Chart</a>
 - <a href="#features">Features</a>
   - <a href="#actual-features">Game</a>
   - <a href="#potential-features">Potential Features</a>
@@ -103,7 +105,34 @@ The features of TICTACTOE include:
 
 <span id="structure"></span>
 
+### * Game name
+### * Username input
+### * Game menu
+### * Game type : vs computer/ 2nd player
+### * Select symbol
+### * Game vs computer
+### * Game vs player
+### * Game over
+### * Game quit
+### * How to play section
+### * Print scores section
+### * Google spreadhseet 
+
+
+
+
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+
+<span id="skeleton"></span>
+
+## 4. SKELETON
+
+<span id="flowchart"></span>
+
+## Flow Chart
+Before starting the game, I have created the structure in the following chart I have made using [Lucid Charts](https://www.lucidchart.com/pages/). The chart initially did not have all the features I eventually included in the app, only the game and the how to play section. I have added the 'print scores' section while working on the game. 
+
+![chart](media/chart.jpeg )
 
 <span id="features"></span>
 
@@ -119,12 +148,5 @@ The features of TICTACTOE include:
 ### Potential features
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 
-<span id="flowchart"></span>
-
-## Flow Chart
-Before starting the game, I have created the structure in the following chart I have made using [Lucid Charts](https://www.lucidchart.com/pages/). The chart initially did not have all the features I eventually included in the app, only the game and the how to play section. I have added the 'print scores' section while working on the game. 
-
-![chart](media/chart.jpeg )
 
