@@ -28,6 +28,12 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 <span id="howtoplay"></span>
 
 ## How to play?
+* The game is played on a grid of 3 by 3 squares. 
+* You have the option to pick to play against the computer or a second player. 
+* If you select X, your opponent will play as O. 
+* Players take turns putting their symbols in empty squares. 
+* The first player to get 3 marks in a row : up, down, across or diagonally is the winner.
+* If no one gets the 3 marks in a row and the 9 squares are full, the game is over with no winners. 
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 <span id="ux"></span>
