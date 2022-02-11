@@ -46,10 +46,10 @@ def print_game_name():
 
 print(
    """
-    _ _ _   __     ____     _ _ _      __        ____     _ _ _    ____    _____
-   |_   _| |  |  /   __|   |_   _|    /  \     /   __|   |_   _|  / __ \  |  _ _|
-     | |   |  | (   /        | |     / /\ \   (   /        | |   | |__| | | |___|
-     |_|   |__|  \ _\_       |_|    / ==== \   \ _\__      |_|    \____/  |_|___
+ _ _ _   __     ____     _ _ _      __        ____     _ _ _    ____    _____
+|_   _| |  |  /   __|   |_   _|    /  \     /   __|   |_   _|  / __ \  |  _ _|
+  | |   |  | (   /        | |     / /\ \   (   /        | |   | |__| | | |___|
+  |_|   |__|  \ _\_       |_|    / ==== \   \ _\__      |_|    \____/  |_|___
   
    """
   )
@@ -200,18 +200,6 @@ def how_to_play():
     else:
       print(" Incorrect input, please select '0' or 'q'.\n")
 
-# function to print scores
-def print_scores():
-  """
-  Function to print out user's score.
-  """
-  print("Here is your score: \n")
-  print("You have played " + str(count_games) + " times!\n")
-  print("You have won " + str(count_win) + " times!\n")
-  print("Draw games: " + str(count_draw))
-  print("You have lost " + str(count_lose) + " times!\n")
-  print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'\n")
-
   # loop to quit or return to the main menu depending on user input
   while True:
     player_choice = input().strip().lower()
@@ -244,6 +232,20 @@ def select_game():
             quit_game()
         else: 
             print("Invalid input, please select '1' to play against the computer, '2' to play a 2 player game or 'q' to quit the game")
+
+
+# function to print scores
+def print_scores():
+  """
+  Function to print out user's score.
+  """
+  print("Here is your score: \n")
+  print("You have played " + str(count_games) + " times!\n")
+  print("You have won " + str(count_win) + " times!\n")
+  print("Draw games: " + str(count_draw))
+  print("You have lost " + str(count_lose) + " times!\n")
+  print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'\n")
+
 
 def champion(field, username):
   """
