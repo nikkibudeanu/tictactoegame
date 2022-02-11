@@ -53,5 +53,11 @@ As a user, I want to:
 * input a username
 
 
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+
+<span id="flowchart"></span>
+
+## Flow Chart
+Before starting the game, I have created the structure in the following chart I have made using [Lucid Charts](https://www.lucidchart.com/pages/). The chart initially did not have all the features I eventually included in the app, only the game and the how to play section. I have added the 'print scores' section while working on the game. 
 
 ![chart](media/chart.jpeg )
