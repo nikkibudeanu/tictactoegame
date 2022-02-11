@@ -3,9 +3,11 @@
 
 **[Live site]()**
 
-TicTacToe or Xs and Os is a 2 player game in which the olayers seek in alternate turns to complete a column, row or a diagonal with three O's or X's drawn in the empty spaces of a grid of 9 Squares. 
+TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate turns to complete a column, row or a diagonal with three O's or X's drawn in the empty spaces of a grid of 9 Squares. 
 
-## Index 
+<span id="top"></span>
+
+## Table of contents
 - <a href="#howtoplay">How to play</a>
 - <a href="#ux">UX</a>
   - <a href="#ux-stories">User stories</a>
@@ -20,6 +22,24 @@ TicTacToe or Xs and Os is a 2 player game in which the olayers seek in alternate
   - <a href="#testing-bugs">Known bugs</a>
 - <a href="#deployment">Deployment</a>
 - <a href="#credits">Credits</a>
+
+<div align="right"><a style="text-align:right" href="#top">Go table of contents :arrow_double_up:</a></div>
+<span id="ux"></span>
+
+## UX
+
+<span id="ux-stories"></span>
+
+### User stories
+
+As a user, I want to:
+* select the type of game: vs computer or vs second player. 
+* have access to how to play instructions
+* view my score 
+* easily navigate throughout the menu
+* be able to quit the game
+* input a username
+
 
 
 ![chart](media/chart.jpeg )

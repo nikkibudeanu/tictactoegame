@@ -250,13 +250,13 @@ def champion(field, username):
   """
   Function to determine who has won the game. returns True or False.
   """
-  if (field[1] == username and field[2] == username and field[3] == username) or \
+  if (field[2] == username and field[5] == username and field[8] == username) or \
+     (field[1] == username and field[2] == username and field[3] == username) or \
+     (field[1] == username and field[5] == username and field[9] == username) or \
      (field[4] == username and field[5] == username and field[6] == username) or \
      (field[7] == username and field[8] == username and field[9] == username) or \
      (field[1] == username and field[4] == username and field[7] == username) or \
-     (field[2] == username and field[5] == username and field[8] == username) or \
      (field[3] == username and field[6] == username and field[9] == username) or \
-     (field[1] == username and field[5] == username and field[9] == username) or \
      (field[3] == username and field[5] == username and field[7] == username):
     return True
   else:
