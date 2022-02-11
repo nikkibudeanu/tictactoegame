@@ -30,7 +30,7 @@ count_x = 0
 count_o = 0
 
 field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-xoro = ["x", "o"]
+x_o_ro = ["x", "o"]
 
 # Game name function
 def print_game_name():
@@ -139,7 +139,7 @@ def count_x_games():
   Counts the amount of games played by the user as 'x'.
   """
   global count_x
-  if player_symbol_choice == xoro[0]:
+  if player_symbol_choice == x_or_o[0]:
     count_x += 1
     data.update_cell(new_col_number, 6, count_x)
 
@@ -294,14 +294,14 @@ def play_game():
     # Let's user select the symbol he/she wants to play as. Either 'X'
     # or 'O'. Prints out to user message that wrong symbol has been
     # chosen, if so restarts the game.
-    print(f"Do you want to play as  '{xoro[0]}' or  '{xoro[1]}?' \n")
+    print(f"Do you want to play as  '{x_or_o[0]}' or  '{x_or_o[1]}?' \n")
     global player_symbol_choice
     player_symbol_choice = input().lower().strip()
-    if player_symbol_choice == xoro[0]:
-        opponent_symbol_choice = xoro[1]
+    if player_symbol_choice == x_or_o[0]:
+        opponent_symbol_choice = x_or_o[1]
         count_x_games()
-    elif player_symbol_choice == xoro[1]:
-        opponent_symbol_choice = xoro[0]
+    elif player_symbol_choice == x_or_o[1]:
+        opponent_symbol_choice = x_or_o[0]
     elif player_symbol_choice == "q":
         quit_game()
     else:
