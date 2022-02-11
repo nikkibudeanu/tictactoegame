@@ -23,7 +23,13 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 - <a href="#deployment">Deployment</a>
 - <a href="#credits">Credits</a>
 
-<div align="right"><a style="text-align:right" href="#top">Go table of contents :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+
+<span id="howtoplay"></span>
+
+## How to play?
+
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 <span id="ux"></span>
 
 ## UX
