@@ -10,11 +10,12 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 ## Table of contents
 - <a href="#howtoplay">How to play</a>
 - <a href="#ux">UX</a>
-  - <a href="#strategy">Strategy</a>
+  - <a href="#strategy">STRATEGY</a>
      - <a href="#ux-stories">User stories</a>
      - <a href="#project-goals">Project goals</a>
      - <a href="#user-goals">User goals</a>
      - <a href="#owner-goals">Game owner goals</a>
+  - <a href="#scope">SCOPE</a>
 - <a href="#flowchart">Flow Chart</a>
 - <a href="#features">Features</a>
   - <a href="#actual-features">Game</a>
@@ -81,6 +82,26 @@ The target user is:
 ### Game owner goals:
 * Provide a free, easy to use online game. 
 * Collect data from all users: username, number of tries, number of games won, lost or draw. 
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+
+
+<span id="scope"></span>
+
+## 2. SCOPE
+The features of TICTACTOE include:
+* the main game menu
+* 2 game types: vs computer/second player
+* the how to play section 
+* a section that prints out the scores
+* ability to quit the game
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+
+
+<span id="structure"></span>
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 
