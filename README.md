@@ -1,9 +1,11 @@
 
 # TicTacToe 
 
-**[Live site]()**
+**[Live site](https://tictactoegamenikki.herokuapp.com/)**
 
 TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate turns to complete a column, row or a diagonal with three O's or X's drawn in the empty spaces of a grid of 9 Squares. 
+
+![name](media/name.png)
 
 <span id="top"></span>
 
