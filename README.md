@@ -13,8 +13,8 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
   - <a href="#ux-stories">User stories</a>
 - <a href="#flowchart">Flow Chart</a>
 - <a href="#features">Features</a>
-  - <a href="#features-all">Game</a>
-  - <a href="#features-future">Potential Features</a>
+  - <a href="#actual-features">Game</a>
+  - <a href="#potential-features">Potential Features</a>
 - <a href="#technologies">Technologies Used</a>
 - <a href="#testing">Testing</a>
   - <a href="#testing-manual">Manual</a>
@@ -52,6 +52,21 @@ As a user, I want to:
 * be able to quit the game
 * input a username
 
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+
+<span id="features"></span>
+
+
+## Features
+
+<span id="actual-features"></span>
+
+### Actual features
+
+<span id="potential-features"></span>
+
+### Potential features
+
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 
@@ -61,3 +76,4 @@ As a user, I want to:
 Before starting the game, I have created the structure in the following chart I have made using [Lucid Charts](https://www.lucidchart.com/pages/). The chart initially did not have all the features I eventually included in the app, only the game and the how to play section. I have added the 'print scores' section while working on the game. 
 
 ![chart](media/chart.jpeg )
+
