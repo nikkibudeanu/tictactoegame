@@ -315,7 +315,7 @@ def play_game():
             # function to add input and check if the square is empty and if the input is valid.
             try:
                 choice = int(input(f"Please choose an empty space for "
-                                   f"your next move as '{player_symbol_choice}'. \n"))
+                                   f"your next move as '{player_symbol_choice}' . \n"))
                 if choice in range(1, 10):
                     if field[choice] == " ":
                         field[choice] = player_symbol_choice
