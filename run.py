@@ -233,12 +233,12 @@ def select_game():
     # loops through user input
     while True:
         player_game_choice = input().strip().lower()
-        global game_level
+        global game_type
         if player_game_choice == "1":
-            game_level = 1
+            game_type = 1
             play_game()
         elif player_game_choice == "2":
-            game_level = 2
+            game_type = 2
             play_game()
         elif player_game_choice == "q":
             quit_game()
@@ -331,10 +331,10 @@ def play_game():
         if champion(field, player_symbol_choice):
             print_field()
             count_wins()
-            if game_level == 1:
+            if game_type == 1:
                 print("You win! Congratulations")
                 return_to_main_page()
-            elif game_level == 2:
+            elif game_type == 2:
                 print("Player one wins! Congratulations")
                 return_to_main_page()
             else:
@@ -348,7 +348,7 @@ def play_game():
             return_to_main_page()
 
         # condition to check if the game type is against the computer.
-        if game_level == 1:
+        if game_type == 1:
             choice = computer_choice(field, opponent_symbol_choice)
             field[choice] = opponent_symbol_choice
 
@@ -366,7 +366,7 @@ def play_game():
                 return_to_main_page()
 
         # condition to check if the game type is against a second player. 
-        if game_level == 2:
+        if game_type == 2:
             # loop for 2nd player to place its symbol in an empty square
             while True:
                 try:
