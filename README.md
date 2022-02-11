@@ -9,6 +9,9 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 
 ## Table of contents
 - <a href="#howtoplay">How to play</a>
+- <a href="#features">Features</a>
+  - <a href="#actual-features">Game</a>
+  - <a href="#potential-features">Potential Features</a>
 - <a href="#ux">UX</a>
   - <a href="#strategy">STRATEGY</a>
      - <a href="#ux-stories">User stories</a>
@@ -19,9 +22,6 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
   - <a href="#structure">STRUCTURE</a>
   - <a href="#skeleton">SKELETON</a>
      - <a href="#flowchart">Flow Chart</a>
-- <a href="#features">Features</a>
-  - <a href="#actual-features">Game</a>
-  - <a href="#potential-features">Potential Features</a>
 - <a href="#technologies">Technologies Used</a>
 - <a href="#testing">Testing</a>
   - <a href="#validator-testing">Manual</a>
@@ -41,6 +41,22 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 * Players take turns putting their symbols in empty squares. 
 * The first player to get 3 marks in a row : up, down, across or diagonally is the winner.
 * If no one gets the 3 marks in a row and the 9 squares are full, the game is over with no winners. 
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+
+<span id="features"></span>
+
+## Features
+
+<span id="actual-features"></span>
+
+### Actual features
+
+<span id="potential-features"></span>
+
+### Potential features
+
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 <span id="ux"></span>
@@ -105,18 +121,18 @@ The features of TICTACTOE include:
 
 <span id="structure"></span>
 
-### * Game name
-### * Username input
-### * Game menu
-### * Game type : vs computer/ 2nd player
-### * Select symbol
-### * Game vs computer
-### * Game vs player
-### * Game over
-### * Game quit
-### * How to play section
-### * Print scores section
-### * Google spreadhseet 
+###  Game name
+### Username input
+### Game menu
+### Game type : vs computer/ 2nd player
+### Select symbol
+###  Game vs computer
+###  Game vs player
+###  Game over
+###  Game quit
+###  How to play section
+### Print scores section
+###  Google spreadhseet 
 
 
 
@@ -134,18 +150,9 @@ Before starting the game, I have created the structure in the following chart I 
 
 ![chart](media/chart.jpeg )
 
-<span id="features"></span>
 
 
-## Features
 
-<span id="actual-features"></span>
-
-### Actual features
-
-<span id="potential-features"></span>
-
-### Potential features
 
 
 
