@@ -91,7 +91,7 @@ def username():
     """
     global username
     global new_col_number
-    print("What is your name?")
+    print("What is your name?\n")
     username = input()
     new_col_number = len(data.col_values(1)) + 1
     data.update_cell(new_col_number, 1, username)
@@ -157,11 +157,11 @@ def game_running():
   The main function
   """ 
   print_game_name()
-  print("Hello " + username + "! Please select one of the following options.")
-  print("1. Play our game")
-  print("2. How to play")
-  print("3. Print scores")
-  print("Q. Quit game")
+  print("Hello " + username + "! Please select one of the following options.\n")
+  print("1. Play our game\n")
+  print("2. How to play\n")
+  print("3. Print scores\n")
+  print("Q. Quit game\n")
   
   # condition to loop through player inputs and go to the next menu
   while True:
@@ -206,12 +206,12 @@ def print_scores():
   """
   Function to print out user's score.
   """
-  print("Here is your score: ")
-  print("You have played " + str(count_games) + " times!")
-  print("You have won " + str(count_win) + " times!")
+  print("Here is your score: \n")
+  print("You have played " + str(count_games) + " times!\n")
+  print("You have won " + str(count_win) + " times!\n")
   print("Draw games: " + str(count_draw))
-  print("You have lost " + str(count_lose) + " times!")
-  print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'")
+  print("You have lost " + str(count_lose) + " times!\n")
+  print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'\n")
 
   # loop to quit or return to the main menu depending on user input
   while True:
@@ -228,9 +228,9 @@ def select_game():
     Enables user to play against computer or another player. 
     """
     print("Select which type of game would you like to play: ")
-    print("1. Play the game against the computer. ")
-    print("2. 2 player game. ")
-    print("Q. Quit game. ")
+    print("1. Play the game against the computer. \n")
+    print("2. 2 player game. \n")
+    print("Q. Quit game. \n")
     # loops through user input
     while True:
         player_game_choice = input().strip().lower()
@@ -305,7 +305,7 @@ def play_game():
         quit_game()
     else:
         print("Invalid input, please use either 'X' or 'O'.\n")
-        print("If you want to quit the game, type 'Q'.")
+        print("If you want to quit the game, type 'Q'.\n")
         play_game()
     # The main game loop
     while True:
