@@ -10,14 +10,16 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 ## Table of contents
 - <a href="#howtoplay">How to play</a>
 - <a href="#ux">UX</a>
-  - <a href="#ux-stories">User stories</a>
+  - <a href="#strategy">Strategy</a>
+     - <a href="#ux-stories">User stories</a>
+     - <a href="#project-goals">Project goals</a>
 - <a href="#flowchart">Flow Chart</a>
 - <a href="#features">Features</a>
   - <a href="#actual-features">Game</a>
   - <a href="#potential-features">Potential Features</a>
 - <a href="#technologies">Technologies Used</a>
 - <a href="#testing">Testing</a>
-  - <a href="#testing-manual">Manual</a>
+  - <a href="#validator-testing">Manual</a>
   - <a href="#testing-unresolved">Unsolved bugs</a>
   - <a href="#testing-bugs">Known bugs</a>
 - <a href="#deployment">Deployment</a>
@@ -38,11 +40,14 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 <span id="ux"></span>
 
-## UX
+# UX
 
+<span id="strategy"></span>
+
+## 1. STRATEGY
 <span id="ux-stories"></span>
 
-### User stories
+### User stories:
 
 As a user, I want to:
 * select the type of game: vs computer or vs second player. 
@@ -51,6 +56,12 @@ As a user, I want to:
 * easily navigate throughout the menu
 * be able to quit the game
 * input a username
+
+
+<span id="project-goals"></span>
+
+### Project goals:
+The primary goals of TicTacToe is to entertain its users, to be a user friendly platform with an intuitive flow which allows its users to play the game easily, see their score, select the type of game and finally, quit the game. 
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 
