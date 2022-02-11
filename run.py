@@ -168,7 +168,7 @@ def game_running():
     elif player_choice == "2":
       how_to_play()
     elif player_choice == "3":
-      print_scores()
+      show_scores()
     elif player_choice == "q":
       quit_game()
     else: 
@@ -224,7 +224,7 @@ def select_game():
 
 
 # Function to print scores, games played, lost games, won games and draw games.
-def print_scores():
+def show_scores():
   """
   Function to print out user's score.
   """
@@ -234,6 +234,15 @@ def print_scores():
   print("Draw games: " + str(count_draw))
   print("You have lost " + str(count_lose) + " times!\n")
   print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'\n")
+
+  while True:
+    player_choice = input().strip().lower()
+    if player_choice == "0":
+      game_running()
+    elif player_choice == "q": 
+      quit_game()
+    else: 
+      print("Invalid input, please select '0' to return to the main page and 'q' to quit the game")
 
 # Function to determine the winner.
 def champion(field, username):
