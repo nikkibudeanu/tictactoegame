@@ -142,7 +142,7 @@ def show_choices_and_take_input():
   print("Hello " + username + "! Please select one of the following options.\n")
   print("1. Play our game\n")
   print("2. How to play\n")
-  print("3. Print scores\n")
+  print("3. Your score\n")
   print("Q. Quit game\n")
   
   # Condition to loop through player inputs and go to the next menu.
