@@ -64,6 +64,7 @@ Once the game starts, the user inputs their name and the data is stored in our s
 
 ### 3. Main page
 Once you input your name, the main page of the game gets printed with the options: play, how to play, print your scores, quit game.
+
 ![main page](media/main.png)
 
 <span id="actual-features"></span>

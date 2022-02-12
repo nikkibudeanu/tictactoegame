@@ -233,13 +233,11 @@ def show_scores():
 def champion(game_field, player_symbol):
   """
   Function to determine who has won the game. returns True or False.
-  """
-     """
-     middle column
+   1. middle column
      """
   if(game_field[2] == player_symbol and game_field[5] == player_symbol and game_field[8] == player_symbol) or \
      """
-     first row
+     2. first row
      """
     (game_field[1] == player_symbol and game_field[2] == player_symbol and game_field[3] == player_symbol) or \
     (game_field[1] == player_symbol and game_field[5] == player_symbol and game_field[9] == player_symbol) or \
