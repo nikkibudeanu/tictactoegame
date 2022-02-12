@@ -51,6 +51,17 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 
 ## Features
 
+### 1. Game name
+The first feature of the game is its name, it prints out when the program starts. 
+
+![name](media/name.png)
+
+### 2. Username
+
+Once the game starts, the user inputs their name and the data is stored in our spreadsheet. 
+
+![username](media/username.png)
+
 <span id="actual-features"></span>
 
 ### Actual features

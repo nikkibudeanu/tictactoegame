@@ -26,11 +26,9 @@ count_games = 0
 count_win = 0
 count_lose = 0
 count_draw = 0 
-count_x = 0
-count_o = 0
 
-field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-x_o_ro = ["x", "o"]
+game_field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+x_or_o = ["x", "o"]
 
 # Game name function
 def print_game_name():
@@ -50,33 +48,33 @@ print(
   )
 
 
-# Game Field function
-def print_field():
+# Game game_field function
+def print_game_field():
     """
-    Print the field for the game and sets position for the items in the list.
+    Print the game_field for the game and sets position for the items in the list.
     """
-    print(" Game Field" + " "*9 + "Reference field")
-    print(" " + field[1] + " | " + field[2] + " | " + field[3] + "  " +
+    print(" Game game_field" + " "*9 + "Reference game_field")
+    print(" " + game_field[1] + " | " + game_field[2] + " | " + game_field[3] + "  " +
           " "*10 + " " + "1" + " | " + "2" + " | " + "3" + "  ")
     print("---|---|---" + " "*11 + "---|---|---")
-    print(" " + field[4] + " | " + field[5] + " | " + field[6] + "  " +
+    print(" " + game_field[4] + " | " + game_field[5] + " | " + game_field[6] + "  " +
           " "*10 + " " + "4" + " | " + "5" + " | " + "6" + "  ")
     print("---|---|---" + " "*11 + "---|---|---")
-    print(" " + field[7] + " | " + field[8] + " | " + field[9] + "  " +
+    print(" " + game_field[7] + " | " + game_field[8] + " | " + game_field[9] + "  " +
           " "*10 + " " + "7" + " | " + "8" + " | " + "9" + "  ")
     print("\n")
 
-# Reset field function
-def reset_field():
+# Reset game_field function
+def reset_game_field():
     """
-    Reset field so the user is able to start a new game
+    Reset game_field so the user is able to start a new game
     """
-    field.clear()
-    field.extend([" ", " ", " ", " ", " ", " ", " ", " ", " ", " "])
+    game_field.clear()
+    game_field.extend([" ", " ", " ", " ", " ", " ", " ", " ", " ", " "])
 
 
 # Input username function + add it to the spreadsheet
-def username():
+def take_username_input():
     """
     Ask users to input their name and add it to the spreadsheet first column.
     """
@@ -86,7 +84,7 @@ def username():
     username = input()
     new_col_number = len(data.col_values(1)) + 1
     data.update_cell(new_col_number, 1, username)
-    game_running()
+    show_choices_and_take_input()
 
 # Quit game function
 def quit_game():
@@ -94,7 +92,7 @@ def quit_game():
     quit()
 
 # Function to count number of games won by the user.
-def count_wins():
+def increment_wins_in_spreadsheet():
   """
   Update the spreadsheet win column with number of wins of each user.
   """
@@ -104,7 +102,7 @@ def count_wins():
   count_total_games()
 
 # Function to count draw games.
-def count_draws():
+def increment_draws_in_spreadsheet():
   """
   Update the spreadsheet draw column with number of draws of the user. 
   """
@@ -114,7 +112,7 @@ def count_draws():
   count_total_games()
 
 # Function to count lost games and update the spreadsheet lost column.
-def count_loses():
+def increment_loses_in_spreadsheet():
   """
   Update the spreadsheet loss column with the number of losses for each user.
   """
@@ -133,22 +131,9 @@ def count_total_games():
   count_games = count_win + count_draw + count_lose
   data.update_cell(new_col_number, 5, count_games)
 
-# Function to count games played as 'X' by each user. 
-def count_x_games():
-  """
-  Counts the amount of games played by the user as 'x'.
-  """
-  global count_x
-  if player_symbol_choice == x_or_o[0]:
-    count_x += 1
-    data.update_cell(new_col_number, 6, count_x)
-
-
-# Function to count games playes as 'O' by each user.
-
 
 # Main function of the game.
-def game_running():
+def show_choices_and_take_input():
   """
   The function of the main menu that requires user input
   in order to select one of the game sections.
@@ -164,7 +149,7 @@ def game_running():
   while True:
     player_choice = input().strip().lower()
     if player_choice == "1":
-      select_game()
+      select_game_type()
     elif player_choice == "2":
       how_to_play()
     elif player_choice == "3":
@@ -192,14 +177,14 @@ def how_to_play():
   while True:
     player_choice = input().strip().lower()
     if player_choice == "0":
-      game_running()
+      show_choices_and_take_input()
     elif player_choice == "q":
       quit_game()
     else:
       print("Invalid input, please select '0' or 'q'!")
 
 # Function to select game vs the computer or vs a player.
-def select_game():
+def select_game_type():
     """
     Enables user to play against computer or another player. 
     """
@@ -238,42 +223,42 @@ def show_scores():
   while True:
     player_choice = input().strip().lower()
     if player_choice == "0":
-      game_running()
+      show_choices_and_take_input()
     elif player_choice == "q": 
       quit_game()
     else: 
       print("Invalid input, please select '0' to return to the main page and 'q' to quit the game")
 
 # Function to determine the winner.
-def champion(field, username):
+def champion(game_field, player_symbol):
   """
   Function to determine who has won the game. returns True or False.
   """
-  if (field[2] == username and field[5] == username and field[8] == username) or \
-     (field[1] == username and field[2] == username and field[3] == username) or \
-     (field[1] == username and field[5] == username and field[9] == username) or \
-     (field[4] == username and field[5] == username and field[6] == username) or \
-     (field[7] == username and field[8] == username and field[9] == username) or \
-     (field[1] == username and field[4] == username and field[7] == username) or \
-     (field[3] == username and field[6] == username and field[9] == username) or \
-     (field[3] == username and field[5] == username and field[7] == username):
-    return True
+  if(game_field[2] == player_symbol and game_field[5] == player_symbol and game_field[8] == player_symbol) or \
+    (game_field[1] == player_symbol and game_field[2] == player_symbol and game_field[3] == player_symbol) or \
+    (game_field[1] == player_symbol and game_field[5] == player_symbol and game_field[9] == player_symbol) or \
+    (game_field[4] == player_symbol and game_field[5] == player_symbol and game_field[6] == player_symbol) or \
+    (game_field[7] == player_symbol and game_field[8] == player_symbol and game_field[9] == player_symbol) or \
+    (game_field[1] == player_symbol and game_field[4] == player_symbol and game_field[7] == player_symbol) or \
+    (game_field[3] == player_symbol and game_field[6] == player_symbol and game_field[9] == player_symbol) or \
+    (game_field[3] == player_symbol and game_field[5] == player_symbol and game_field[7] == player_symbol):
+     return True
   else:
     return False
 
 # Function to determine if it is a draw game.
-def draw(field):
+def draw(game_field):
   """
   Function to check if there are any squares left.Returns false if there are more than 1 square left
   and true if not(game ends with no winners).
   """
-  if field.count(" ") > 1:
+  if game_field.count(" ") > 1:
     return False
   else:
     return True
 
 # Function to create random computer moves in the vs computer game.
-def computer_choice(field, opponent_symbol_choice):
+def computer_choice(game_field, opponent_symbol_choice):
     """
     Loops to get a random computer choice within the field. 
     Checks if the choice is an empty string within the list and place the symbol.
@@ -282,16 +267,12 @@ def computer_choice(field, opponent_symbol_choice):
     while True:
         # randint method learnt on  https://www.w3schools.com/python/ref_random_randint.asp
         computer_choice = random.randint(1, 9)
-        if field[computer_choice] == " ":
+        if game_field[computer_choice] == " ":
             return computer_choice
 
-# Main function which runs the game.
-def play_game():
-    """
-    The main game function that gets executed after all previous options
-    gets put through.
-    """
-    # Let's user select the symbol he/she wants to play as. Either 'X'
+# Function to take user input for x_or_o
+def ask_for_x_or_o():
+   # Let's user select the symbol he/she wants to play as. Either 'X'
     # or 'O'. Prints out to user message that wrong symbol has been
     # chosen, if so restarts the game.
     print(f"Do you want to play as  '{x_or_o[0]}' or  '{x_or_o[1]}?' \n")
@@ -299,7 +280,6 @@ def play_game():
     player_symbol_choice = input().lower().strip()
     if player_symbol_choice == x_or_o[0]:
         opponent_symbol_choice = x_or_o[1]
-        count_x_games()
     elif player_symbol_choice == x_or_o[1]:
         opponent_symbol_choice = x_or_o[0]
     elif player_symbol_choice == "q":
@@ -308,9 +288,20 @@ def play_game():
         print("Invalid input, please use either 'X' or 'O'.\n")
         print("If you want to quit the game, type 'Q'.\n")
         play_game()
+    return [player_symbol_choice, opponent_symbol_choice]
+
+# Main function which runs the game.
+def play_game():
+    """
+    The main game function that gets executed after all previous options
+    gets put through.
+    """
+    # Take user input for symbol choice
+    [player_symbol_choice, opponent_symbol_choice] = ask_for_x_or_o()
+
     # The main game loop
     while True:
-        print_field()
+        print_game_field()
         # Condition to loop for the main player input.
         while True:
             # function to add input and check if the square is empty and if the input is valid.
@@ -318,8 +309,8 @@ def play_game():
                 choice = int(input(f"Please choose an empty space for "
                                    f"your next move as '{player_symbol_choice}' . \n"))
                 if choice in range(1, 10):
-                    if field[choice] == " ":
-                        field[choice] = player_symbol_choice
+                    if game_field[choice] == " ":
+                        game_field[choice] = player_symbol_choice
                         break
                     else:
                         print("Please select an empty square!")
@@ -330,9 +321,9 @@ def play_game():
                 print("Please enter a valid number!")
 
         # Condition to check if the user won : two different feedback messages depending on the game type.
-        if champion(field, player_symbol_choice):
-            print_field()
-            count_wins()
+        if champion(game_field, player_symbol_choice):
+            print_game_field()
+            increment_wins_in_spreadsheet()
             if game_type == 1:
                 print("You win! Congratulations")
                 return_to_main_page()
@@ -342,28 +333,28 @@ def play_game():
             else:
                 return None
 
-        print_field()
+        print_game_field()
         # Condition to check if the grid is full to declare no winners.
-        if draw(field):
-            count_draws()
+        if draw(game_field):
+            increment_draws_in_spreadsheet()
             print("2 winners! It's a draw!")
             return_to_main_page()
 
         # Condition to check if the game type is against the computer.
         if game_type == 1:
-            choice = computer_choice(field, opponent_symbol_choice)
-            field[choice] = opponent_symbol_choice
+            choice = computer_choice(game_field, opponent_symbol_choice)
+            game_field[choice] = opponent_symbol_choice
 
             # Condition to check if the computer wins
-            if champion(field, opponent_symbol_choice):
-                count_loses()
-                print_field()
+            if champion(game_field, opponent_symbol_choice):
+                increment_loses_in_spreadsheet()
+                print_game_field()
                 print("Computer wins!")
                 return_to_main_page()
 
             # Condition to check if it's a draw.
-            if draw(field):
-                count_draws()
+            if draw(game_field):
+                increment_draws_in_spreadsheet()
                 print("2 winners! It's a draw!")
                 return_to_main_page()
 
@@ -374,8 +365,8 @@ def play_game():
                 try:
                     choice = int(input(f"Player TWO, it's your turn! Select an empty score for your next move as " + opponent_symbol_choice + "." ))
                     if choice in range(1, 10):
-                        if field[choice] == " ":
-                            field[choice] = opponent_symbol_choice
+                        if game_field[choice] == " ":
+                            game_field[choice] = opponent_symbol_choice
                             break
                         else:
                             print("Please select an empty square!")
@@ -386,17 +377,17 @@ def play_game():
                     print("Invalid input.")
 
             # Condition to check if the 2nd player wins
-            if champion(field, opponent_symbol_choice):
-                print_field()
-                count_loses()
+            if champion(game_field, opponent_symbol_choice):
+                print_game_field()
+                increment_loses_in_spreadsheet()
                 print(f"Player two '{opponent_symbol_choice}' is the winner! Congratulations")
                 return_to_main_page()
 
-            print_field()
+            print_game_field()
 
             # Condition to check if it's a draw
-            if draw(field):
-                count_draws()
+            if draw(game_field):
+                increment_draws_in_spreadsheet()
                 print("2 winners! It's a draw!")
                 return_to_main_page()
 
@@ -410,11 +401,16 @@ def return_to_main_page():
   while True:
     player_choice = input().strip()
     if player_choice == "1":
-      reset_field()
-      game_running()
+      reset_game_field()
+      show_choices_and_take_input()
     elif player_choice == "q":
       quit_game()
     else:
       print("Invalid input!Please try again!")
 
-username()
+def start_game():
+    print_game_name()
+    take_username_input()
+    show_choices_and_take_input()
+
+start_game()
