@@ -63,9 +63,14 @@ Once the game starts, the user inputs their name and the data is stored in our s
 ![username](media/username.png)
 
 ### 3. Main page
-Once you input your name, the main page of the game gets printed with the options: play, how to play, print your scores, quit game.
+Once you input your name, the main page of the game gets printed with the options: play, how to play, your scores, quit game.
 
 ![main page](media/main.png)
+
+### 4. How to play
+On this page, you will have step-by-step instructions on how to play the game, how to pick the symbol, what does the grid consist of and you will also be able to return to the main menu or quit the game. 
+
+![how to play](media/howto.png)
 
 <span id="actual-features"></span>
 
