@@ -49,7 +49,10 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 
 <span id="features"></span>
 
-## Features
+<span id="actual-features"></span>
+
+## Actual features
+
 
 ### 1. Game name
 The first feature of the game is its name, it prints out when the program starts. 
@@ -72,9 +75,17 @@ On this page, you will have step-by-step instructions on how to play the game, h
 
 ![how to play](media/howto.png)
 
-<span id="actual-features"></span>
 
-### Actual features
+### 5. Play game
+If you select 1. in the main page, it will redirect you to the next page, where you need to select the type of game: vs computer or vs a 2nd player if you want to play with your friend. You can also quit the game from this menu. 
+
+![game type](media/gametype.png)
+
+### 6. Select symbol
+As soon as you have selected the game type, you are asked to select the symbol you would like to play as: "X" or "O". 
+
+![symbol](media/symbol.png)
+
 
 <span id="potential-features"></span>
 
