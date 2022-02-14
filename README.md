@@ -97,9 +97,10 @@ There are 2 game types, please see below.
 
 
 ### 8. Game against computer
-
+In this game, the player gets the first turn to place a symbol using the reference field. The computer then generates randomly a square choice and it gets printed. 
 
 ### 9. Game against 2nd player
+In the game vs 2nd player, the first player goes first to place a symbol using the reference field numbers. As soon as the first player places his/her symbol, 2nd player's takes turn to place one. 
 
 
 

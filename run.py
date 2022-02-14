@@ -53,7 +53,7 @@ def print_game_field():
     """
     Print the game_field for the game and sets position for the items in the list.
     """
-    print(" Game game field" + " "*9 + "Reference game field")
+    print(" Game field" + " "*9 + "Reference game field")
     print(" " + game_field[1] + " | " + game_field[2] + " | " + game_field[3] + "  " +
           " "*10 + " " + "1" + " | " + "2" + " | " + "3" + "  ")
     print("---|---|---" + " "*11 + "---|---|---")
