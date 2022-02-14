@@ -12,7 +12,7 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 ## Table of contents
 - <a href="#howtoplay">How to play</a>
 - <a href="#features">Features</a>
-  - <a href="#actual-features">Game</a>
+  - <a href="#actual-features">Actual Features</a>
   - <a href="#potential-features">Potential Features</a>
 - <a href="#ux">UX</a>
   - <a href="#strategy">STRATEGY</a>
@@ -30,6 +30,8 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
   - <a href="#testing-unresolved">Unsolved bugs</a>
   - <a href="#testing-bugs">Known bugs</a>
 - <a href="#deployment">Deployment</a>
+  - <a href="#github">Github settings</a>
+  - <a href="#heroku">Heroku </a>
 - <a href="#credits">Credits</a>
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
@@ -102,9 +104,15 @@ In this game, the player gets the first turn to place a symbol using the referen
 ### 9. Game against 2nd player
 In the game vs 2nd player, the first player goes first to place a symbol using the reference field numbers. As soon as the first player places his/her symbol, 2nd player's takes turn to place one. 
 
+### 10. Your scores
 
 
+### 11. Quit game
+
+
+### 12. Google sheet
 <span id="potential-features"></span>
+
 
 ## Potential features
 
@@ -205,6 +213,33 @@ Before starting the game, I have created the structure in the following chart I 
 
 
 
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 
+<span id="deployment"></span>
+
+# Deployment
+
+<span id="github"></span>
+
+## Github settings
+
+
+<span id="heroku"></span>
+
+## Heroku
+In order to deploy TicTacToe, I have used Heroku:
+1. Logged into my account.
+2. In the top right corner, I have clicked the button : New.
+3. I the drop-down menu, I selected : Create new app.
+4. I entered the name: tictactoegamenikki and selected Europe as the region. 
+5. After inputting my name and region, I clicked on : Create App. 
+6. After creating the app, I have clicked on the Settings button and scrolled down to : Config Vars. 
+7. Then, I clicked the Reveal Config Vars and created 2 keys.
+8. In the first 'KEY', I typed PORT and added '8000' as its value. Then, I clicked on the ADD button. 
+9. I then created another 'KEY' for the credentials. 
+10. Afterwards, in the Buildpacks, I added python and node.js. P.S: PYTHON MUST BE ON TOP. 
+11. I then selected the Deploy tab in the dashboard and selected 'Github' as the deployment method. 
+12. I connected my GitHub account and searched for the repository name. 
+13. Finally, I connected the repo and selected the manual method for Deployment.
 
 
