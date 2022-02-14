@@ -218,11 +218,11 @@ def show_scores():
 
   for row in rows_with_matching_username:
     row_data = sheet_data.row_values(row)
-    if row_data[1] == '1':
+    if row_data[1] > '0':
       games_drawn += 1
-    elif row_data[2] == '1':
+    elif row_data[2] > '0':
       games_won += 1
-    elif row_data[3] == '1':
+    elif row_data[3] > '0':
       games_lost += 1
 
   print("Here is your score: \n")
@@ -355,8 +355,8 @@ def play_game():
 
             # Condition to check if the computer wins
             if champion(game_field, opponent_symbol_choice):
-                increment_loses_in_spreadsheet()
                 print_game_field()
+                increment_loses_in_spreadsheet()
                 print("Computer wins!")
                 return_to_main_page()
 
