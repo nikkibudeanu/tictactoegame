@@ -87,9 +87,25 @@ As soon as you have selected the game type, you are asked to select the symbol y
 ![symbol](media/symbol.png)
 
 
+### 7. THE GAME
+After you select the symbol, you are welcomed to the game field. 
+
+![game](media/game.png)
+
+
+There are 2 game types, please see below.
+
+
+### 8. Game against computer
+
+
+### 9. Game against 2nd player
+
+
+
 <span id="potential-features"></span>
 
-### Potential features
+## Potential features
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
