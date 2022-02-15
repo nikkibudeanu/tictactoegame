@@ -182,7 +182,7 @@ def select_game_type():
     """
     Enables user to play against computer or another player.
     """
-    print("Select which type of game would you like to play: ")
+    print("Select which game would you like to play: \n")
     print("1. Play the game against the computer. \n")
     print("2. 2 player game. \n")
     print("Q. Quit game. \n")
@@ -218,11 +218,11 @@ def show_scores():
 
   for row in rows_with_matching_username:
     row_data = sheet_data.row_values(row)
-    if row_data[1] > '0':
+    if row_data[2] > '0':
       games_drawn += 1
-    elif row_data[2] > '0':
-      games_won += 1
     elif row_data[3] > '0':
+      games_won += 1
+    elif row_data[4] > '0':
       games_lost += 1
 
   print("Here is your score: \n")
@@ -404,7 +404,7 @@ def return_to_main_page():
   """
   User has to select to go back to the main page or quit the game.
   """
-  print("Would you like to play again?")
+  print("Would you like to go back to the main page?")
   print("Select '1' if yes or 'q' if you would like to quit the game. \n ")
   while True:
     player_choice = input().strip()
