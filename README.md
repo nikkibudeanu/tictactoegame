@@ -29,8 +29,7 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
   - <a href="#validator-testing">Manual</a>
   - <a href="#testing-unresolved">Unsolved bugs</a>
   - <a href="#testing-bugs">Known bugs</a>
-- <a href="#deployment">Deployment</a>
-  - <a href="#github">Github settings</a>
+- <a href="#deployment">Deployment</a>>
   - <a href="#heroku">Heroku </a>
 - <a href="#credits">Credits</a>
 
@@ -105,10 +104,12 @@ In this game, the player gets the first turn to place a symbol using the referen
 In the game vs 2nd player, the first player goes first to place a symbol using the reference field numbers. As soon as the first player places his/her symbol, 2nd player's takes turn to place one. 
 
 ### 10. Your scores
+In the main menu, you will have an option to see your scores if you input '3'. You will be able to see the games played and the amount of times you : won, lost, or draw games.
 
+![scores](media/scores.png)
 
 ### 11. Quit game
-
+In each section of the game, you will be able to go back to the main menu or to quit the game by inputting 'q'.
 
 ### 12. Google sheet
 <span id="potential-features"></span>
@@ -218,10 +219,6 @@ Before starting the game, I have created the structure in the following chart I 
 <span id="deployment"></span>
 
 # Deployment
-
-<span id="github"></span>
-
-## Github settings
 
 
 <span id="heroku"></span>

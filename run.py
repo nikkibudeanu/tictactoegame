@@ -25,7 +25,7 @@ count_win = 0
 count_lose = 0
 count_draw = 0
 
-#TODO
+# Game variables
 game_field = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 x_or_o = ["x", "o"]
 
@@ -34,9 +34,7 @@ def print_game_name():
   """
   Prints the game name
   """
-
-
-print(
+  print(
    """
  _ _ _   __     ____     _ _ _      __        ____     _ _ _    ____    _____
 |_   _| |  |  /   __|   |_   _|    /  \     /   __|   |_   _|  / __ \  |  _ _|
@@ -124,7 +122,6 @@ def increment_loses_in_spreadsheet():
   count_lose += 1
   add_user_row_to_sheet()
   sheet_data.update_cell(new_col_number, 4, count_lose)
-
 
 
 # Main function of the game.
@@ -218,17 +215,17 @@ def show_scores():
 
   for row in rows_with_matching_username:
     row_data = sheet_data.row_values(row)
-    if row_data[2] > '0':
+    if row_data[1] > '0':
       games_drawn += 1
-    elif row_data[3] > '0':
+    elif row_data[2] > '0':
       games_won += 1
-    elif row_data[4] > '0':
+    elif row_data[3] > '0':
       games_lost += 1
 
   print("Here is your score: \n")
   print("You have played " + str(total_games_played) + " times!\n")
   print("You have won " + str(games_won) + " times!\n")
-  print("Draw games: " + str(games_drawn))
+  print("Draw games: " + str(games_drawn) "\n")
   print("You have lost " + str(games_lost) + " times!\n")
   print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'\n")
 
