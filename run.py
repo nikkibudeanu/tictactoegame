@@ -225,7 +225,7 @@ def show_scores():
   print("Here is your score: \n")
   print("You have played " + str(total_games_played) + " times!\n")
   print("You have won " + str(games_won) + " times!\n")
-  print("Draw games: " + str(games_drawn) "\n")
+  print("Draw games: \n" + str(games_drawn) )
   print("You have lost " + str(games_lost) + " times!\n")
   print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'\n")
 
