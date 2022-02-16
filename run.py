@@ -44,16 +44,20 @@ def print_game_name():
 # Game game_field function
 def print_game_field():
     """
-    Print the game_field for the game and sets position for the items in the list.
+    Print the game_field for the game and
+    sets position for the items in the list.
     """
     print(" Game field" + " "*9 + "Reference game field")
-    print(" " + game_field[1] + " | " + game_field[2] + " | " + game_field[3] + "  " +
+    print(" " + game_field[1] + " | " + game_field[2] +
+          " | " + game_field[3] + "  " +
           " "*10 + " " + "1" + " | " + "2" + " | " + "3" + "  ")
     print("---|---|---" + " "*11 + "---|---|---")
-    print(" " + game_field[4] + " | " + game_field[5] + " | " + game_field[6] + "  " +
+    print(" " + game_field[4] + " | " + game_field[5] +
+          " | " + game_field[6] + "  " +
           " "*10 + " " + "4" + " | " + "5" + " | " + "6" + "  ")
     print("---|---|---" + " "*11 + "---|---|---")
-    print(" " + game_field[7] + " | " + game_field[8] + " | " + game_field[9] + "  " +
+    print(" " + game_field[7] + " | " + game_field[8] +
+          " | " + game_field[9] + "  " +
           " "*10 + " " + "7" + " | " + "8" + " | " + "9" + "  ")
     print("\n")
 
@@ -86,11 +90,17 @@ def take_username_input():
 
 
 def quit_game():
+    """
+    Function to quit the game.
+    """
     print("Thank you " + username + " for playing the game!")
     quit()
 
 
 def add_user_row_to_sheet():
+    """
+    Function to add user row to sheet.
+    """
     sheet_data.update_cell(new_col_number, 1, username)
 
 
@@ -139,7 +149,8 @@ def show_choices_and_take_input():
     The function of the main menu that requires user input
     in order to select one of the game sections.
     """
-    print("Hello " + username + "! Please select one of the following options.\n")
+    print("Hello " + username + "!")
+    print("Please select one of the following options.\n")
     print("1. Play our game\n")
     print("2. How to play\n")
     print("3. Your score\n")
@@ -168,12 +179,13 @@ def how_to_play():
     print("1. You will play on the field composed by 3 by 3 squares")
     print("2. Select your symbol betweeen 'X' and 'O'.")
     print("3. Your opponent gets the other symbol once you pick one")
-    print("4. Use the reference field to find out which number is asigned to the box you want to select.")
+    print("4. Use the reference field to find out which number to input.")
     print("5. The player who gets 3 of his symbols in a row is the winner.")
-    print("6. If nobody has 3 marks in a row, the game is over and has no winners.")
-    print("3. If you want to return to the main menu - enter 0. If you want to quit the game - enter 'q'")
+    print("6. If nobody has 3 marks in a row,game is over with no winners.")
+    print("3. If you want to return to the main menu - enter 0.")
+    print("4. If you want to quit the game - enter 'q'")
 
-    # Condition to loop to quit or return to the main menu depending on user input
+    # Condition to loop to quit or return to the main menu.
     while True:
         player_choice = input().strip().lower()
         if player_choice == "0":
@@ -207,24 +219,27 @@ def select_game_type():
         elif player_game_choice == "q":
             quit_game()
         else:
-            print("Invalid input, please select '1' to play against the computer, '2' to play a 2 player game or 'q' to quit the game")
+            print("Invalid input, please select:")
+            print("1' to play against the computer")
+            print("'2' to play a 2 player game or 'q' to quit the game")
 
 
 # Function to print scores, games played, lost games, won games and draw games.
 def show_scores():
     """
     Function to print out user's score.
+    Check sheet on column 1, if that user played previously.
+    Fetch the scores of that user from GSheet.
+    No of rows would be `count_games`,
     """
-# Check sheet on column 1, if that user played previously. Fetch the scores of that user from GSheet.
-# No of rows would be `count_games`, similarly populate other values like win loose draw
-    cell_list_with_matching_username = sheet_data.findall(username)
-    rows_with_matching_username = [cell.row for cell in cell_list_with_matching_username]  
-    total_games_played = len(rows_with_matching_username)
+
+    cells_matching_username = sheet_data.findall(username)
+    rows_matching_username = [cell.row for cell in cells_matching_username]
+    total_games_played = len(rows_matching_username)
     games_won = 0
     games_lost = 0
     games_drawn = 0
-    
-    for row in rows_with_matching_username:
+    for row in rows_matching_username:
         row_data = sheet_data.row_values(row)
         if row_data[1] > '0':
             games_drawn += 1
@@ -238,7 +253,8 @@ def show_scores():
     print("You have won " + str(games_won) + " times!\n")
     print("Draw games: " + str(games_drawn))
     print("You have lost " + str(games_lost) + " times!\n")
-    print("If you want to return to the main menu, enter '0'. To quit the game, enter 'q'\n")
+    print("If you want to return to the main menu, enter '0'.\n")
+    print("To quit the game, enter 'q'.")
 
     while True:
         player_choice = input().strip().lower()
@@ -247,22 +263,39 @@ def show_scores():
         elif player_choice == "q":
             quit_game()
         else:
-            print("Invalid input, please select '0' to return to the main page and 'q' to quit the game")
+            print("Invalid input,select '0' to return to the main page.")
+            print("If you want to quit the game, please select 'q'.")
 
 # Function to determine the winner.
 
 
 def champion(game_field, player_symbol):
     """
-    Function to determine who has won the game. returns True or False.
+    Function to determine who has won the game. Returns True or False.
+    Each win scenario below:
+    1. Middle column.
+    2. First row
+    3. Diagonal from upper left corner to lower right corner.
+    4. Middle row.
+    5. Last row.
+    6. First column.
+    7. Last column.
+    8. Diagonal from upper right corner to lower left corner.
     """
-    if(game_field[2] == player_symbol and game_field[5] == player_symbol and game_field[8] == player_symbol) or \
-      (game_field[1] == player_symbol and game_field[2] == player_symbol and game_field[3] == player_symbol) or \
-      (game_field[1] == player_symbol and game_field[5] == player_symbol and game_field[9] == player_symbol) or \
-      (game_field[4] == player_symbol and game_field[5] == player_symbol and game_field[6] == player_symbol) or \
-      (game_field[7] == player_symbol and game_field[8] == player_symbol and game_field[9] == player_symbol) or \
-      (game_field[1] == player_symbol and game_field[4] == player_symbol and game_field[7] == player_symbol) or \
-      (game_field[3] == player_symbol and game_field[6] == player_symbol and game_field[9] == player_symbol) or \
+    if(game_field[2] == player_symbol and game_field[5] == player_symbol
+       and game_field[8] == player_symbol) or \
+      (game_field[1] == player_symbol and game_field[2] == player_symbol
+        and game_field[3] == player_symbol) or \
+      (game_field[1] == player_symbol and game_field[5] == player_symbol
+        and game_field[9] == player_symbol) or \
+      (game_field[4] == player_symbol and game_field[5] == player_symbol
+        and game_field[6] == player_symbol) or \
+      (game_field[7] == player_symbol and game_field[8] == player_symbol
+        and game_field[9] == player_symbol) or \
+      (game_field[1] == player_symbol and game_field[4] == player_symbol
+        and game_field[7] == player_symbol) or \
+      (game_field[3] == player_symbol and game_field[6] == player_symbol
+        and game_field[9] == player_symbol) or \
       (game_field[3] == player_symbol and game_field[5] == player_symbol and game_field[7] == player_symbol):
         return True
     else:
@@ -273,7 +306,8 @@ def champion(game_field, player_symbol):
 
 def draw(game_field):
     """
-    Function to check if there are any squares left.Returns false if there are more than 1 square left
+    Function to check if there are any squares left.
+    Returns false if there are more than 1 square left
     and true if not(game ends with no winners).
     """
     if game_field.count(" ") > 1:
@@ -287,11 +321,13 @@ def draw(game_field):
 def computer_choice(game_field, opponent_symbol_choice):
     """
     Loops to get a random computer choice within the field.
-    Checks if the choice is an empty string within the list and place the symbol.
+    Checks if the choice is an empty string within the list.
+    Place the symbol.
     Break the loop.
     """
     while True:
-        # randint method learnt on  https://www.w3schools.com/python/ref_random_randint.asp
+        # randint learnt on:
+        #  https://www.w3schools.com/python/ref_random_randint.asp
         computer_choice = random.randint(1, 9)
         if game_field[computer_choice] == " ":
             return computer_choice
@@ -300,9 +336,11 @@ def computer_choice(game_field, opponent_symbol_choice):
 
 
 def ask_for_x_or_o():
-    # Let's user select the symbol he/she wants to play as. Either 'X'
-    # or 'O'. Prints out to user message that wrong symbol has been
-    # chosen, if so restarts the game.
+    """
+    Let's user select the symbol he/she wants to play as. Either 'X'
+     or 'O'. Prints out to user message that wrong symbol has been
+     chosen, if so restarts the game.
+    """
     print(f"Do you want to play as  '{x_or_o[0]}' or  '{x_or_o[1]}?' \n")
     global player_symbol_choice
     player_symbol_choice = input().lower().strip()
@@ -317,6 +355,7 @@ def ask_for_x_or_o():
         print("If you want to quit the game, type 'Q'.\n")
         play_game()
     return [player_symbol_choice, opponent_symbol_choice]
+
 # Main function which runs the game.
 
 
@@ -333,10 +372,11 @@ def play_game():
         print_game_field()
         # Condition to loop for the main player input.
         while True:
-            # function to add input and check if the square is empty and if the input is valid.
+            # function to add input and check if the square is empty
+            # and if the input is valid.
             try:
                 choice = int(input(f"Please choose an empty space for "
-                                   f"your next move as '{player_symbol_choice}' . \n"))
+                                   f"your move as '{player_symbol_choice}'."))
                 if choice in range(1, 10):
                     if game_field[choice] == " ":
                         game_field[choice] = player_symbol_choice
@@ -349,7 +389,8 @@ def play_game():
             except ValueError:
                 print("Please enter a valid number!")
 
-        # Condition to check if the user won : two different feedback messages depending on the game type.
+        # Condition to check if the user won.
+        # Two different feedback messages depending on the game type.
         if champion(game_field, player_symbol_choice):
             print_game_field()
             increment_wins_in_spreadsheet()
@@ -389,7 +430,7 @@ def play_game():
             # Loop for 2nd player to place its symbol in an empty square
             while True:
                 try:
-                    choice = int(input(f"Player TWO, it's your turn! Select an empty score for your next move as " + opponent_symbol_choice + "."))
+                    choice = int(input("Player TWO, select an empty space."))
                     if choice in range(1, 10):
                         if game_field[choice] == " ":
                             game_field[choice] = opponent_symbol_choice
@@ -406,7 +447,7 @@ def play_game():
             if champion(game_field, opponent_symbol_choice):
                 increment_loses_in_spreadsheet()
                 print_game_field()
-                print(f"Player two '{opponent_symbol_choice}' is the winner! Congratulations")
+                print(f"Player two '{opponent_symbol_choice}' is the winner!")
                 return_to_main_page()
 
             print_game_field()
@@ -439,8 +480,12 @@ def return_to_main_page():
 
 
 def start_game():
+    """
+    Functions to start game.
+    """
     print_game_name()
     take_username_input()
     show_choices_and_take_input()
+
 
 start_game()
