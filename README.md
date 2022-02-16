@@ -132,9 +132,11 @@ https://docs.google.com/spreadsheets/d/1qNO7whX-pyrPtZ-PSyqpUHc2fnZQ5o0hCLZHpC5S
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 <span id="ux"></span>
 
-# OOP
 
 <span id="data"></span>
+
+
+# OOP
 
 As data model, I have used lists to create the game field and for the symbols: 
 'x_or_o' and 'game_field' as well as 'rows_matching_username' in the 'show_scores' function to fetch data from the GSpread.
