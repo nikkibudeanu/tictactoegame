@@ -276,11 +276,10 @@ Before starting the game, I have created the structure in the following chart I 
 
 <span id="testing-unresolved"></span>
 
+## Unsolved bugs
 
-## Unsolved bugs
 
-
-1. When fetching data from the GSheet, the user gets his scores in the "Your scores" section. However, if he played more than 1 games in a row without quitting and running the program again with the same username, only the score for the last game is showing up in the "your score" section. The sheet captures the scores for both games. As a temporary solution, I restricted the user to play again without entering the username again so it counts each game's score.
+* When fetching data from the GSheet, the user gets his scores in the "Your scores" section. However, if he played more than 1 games in a row without quitting and running the program again with the same username, only the score for the last game is showing up in the "your score" section. The sheet captures the scores for both games. As a temporary solution, I restricted the user to play again without entering the username again so it counts each game's score.
 
 
 
