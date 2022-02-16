@@ -466,14 +466,18 @@ def show_scores_or_quit():
     """
     User has to select to go back to the main page or quit the game.
     """
-    print("Would you like to see your scores?")
+    print("Would you like to see your scores? \n")
     print("Select '1' if yes or 'q' if you would like to quit the game. \n ")
+    print("If you want to start again, select '0'. \n ")
     while True:
         player_choice = input().strip()
         if player_choice == "1":
             show_scores()
         elif player_choice == "q":
             quit_game()
+        elif player_choice == "0":
+            reset_game_field()
+            start_game()
         else:
             print("Invalid input!Please try again!")
 # Function to start game

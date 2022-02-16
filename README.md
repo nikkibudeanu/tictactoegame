@@ -97,7 +97,7 @@ There are 2 game types, please see below.
 
 
 ### 8. Game against computer
-In this game, the player gets the first turn to place a symbol using the reference field. The computer then generates randomly a square choice and it gets printed. 
+In this game, the player gets the first turn to place a symbol using the reference field. The computer then randomly generates a square choice and it gets printed. 
 
 ### 9. Game against 2nd player
 In the game vs 2nd player, the first player goes first to place a symbol using the reference field numbers. As soon as the first player places his/her symbol, 2nd player's takes turn to place one. 
@@ -111,8 +111,16 @@ In the main menu, you will have an option to see your scores if you input '3'. Y
 In each section of the game, you will be able to go back to the main menu or to quit the game by inputting 'q'.
 
 ### 12. Google sheet
-<span id="potential-features"></span>
 
+Used to collect data and eventually use it to show scores to the user. 
+
+![sheet](media/sheet.png)
+
+To access the spreadsheet, click on the link below:
+https://docs.google.com/spreadsheets/d/1qNO7whX-pyrPtZ-PSyqpUHc2fnZQ5o0hCLZHpC5Sigg/edit#gid=0
+
+
+<span id="potential-features"></span>
 
 ## Potential features
 
@@ -133,12 +141,12 @@ In each section of the game, you will be able to go back to the main menu or to 
 ### User stories:
 
 As a user, I want to:
-* select the type of game: vs computer or vs second player. 
-* have access to how to play instructions
-* view my score 
-* easily navigate throughout the menu
-* be able to quit the game
-* input a username
+* Select the type of game: vs computer or vs second player. 
+* Have access to how to play instructions.
+* View my score .
+* Easily navigate throughout the menu.
+* Be able to quit the game.
+* Input a username.
 
 
 <span id="project-goals"></span>
@@ -171,11 +179,11 @@ The target user is:
 
 ## 2. SCOPE
 The features of TICTACTOE include:
-* the main game menu
+* The main game menu
 * 2 game types: vs computer/second player
-* the how to play section 
-* a section that prints out the scores
-* ability to quit the game
+* The how to play section 
+* A section that prints out the scores
+* Ability to quit the game
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
@@ -270,6 +278,7 @@ Before starting the game, I have created the structure in the following chart I 
 
 
 ## Unsolved bugs
+
 
 1. When fetching data from the GSheet, the user gets his scores in the "Your scores" section. However, if he played more than 1 games in a row without quitting and running the program again with the same username, only the score for the last game is showing up in the "your score" section. The sheet captures the scores for both games. As a temporary solution, I restricted the user to play again without entering the username again so it counts each game's score.
 
