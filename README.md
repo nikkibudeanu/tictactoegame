@@ -255,13 +255,13 @@ Before starting the game, I have created the structure in the following chart I 
 
 <span id="testing"></span>
 
+
 # Testing
 
 
 <span id="validator-testing"></span>
 
-
-## Manual
+## Manual
 
 1. All features have been tested manually: all inputs work as expected.
 2. The program has passed through PEP8 Linter: all code came back with no errors.
@@ -270,6 +270,7 @@ Before starting the game, I have created the structure in the following chart I 
 
 
 ## Unsolved bugs
+
 1. When fetching data from the GSheet, the user gets his scores in the "Your scores" section. However, if he played more than 1 games in a row without quitting and running the program again with the same username, only the score for the last game is showing up in the "your score" section. The sheet captures the scores for both games. As a temporary solution, I restricted the user to play again without entering the username again so it counts each game's score.
 
 
@@ -287,7 +288,7 @@ Before starting the game, I have created the structure in the following chart I 
 
 Before deploying it to Heroku, some steps in Gihub have been taken. 
 * Creds.json file was restricted and added in the .gitignore file
-* Requirements have been created. 
+* Requirements have been created by inputing this into the terminal:  pip3 freeze > requirements.txt.
 
 ## Heroku
 In order to deploy TicTacToe, I have used Heroku:
