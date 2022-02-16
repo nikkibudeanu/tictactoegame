@@ -253,13 +253,14 @@ def show_scores():
     print("You have won " + str(games_won) + " times!\n")
     print("Draw games: " + str(games_drawn))
     print("You have lost " + str(games_lost) + " times!\n")
-    print("If you want to return to the main menu, enter '0'.\n")
+    print("If you want to start again, enter '0'.\n")
     print("To quit the game, enter 'q'.")
 
     while True:
         player_choice = input().strip().lower()
         if player_choice == "0":
-            show_choices_and_take_input()
+            reset_game_field()
+            start_game()
         elif player_choice == "q":
             quit_game()
         else:
@@ -398,14 +399,14 @@ def play_game():
                 print("You win! Congratulations")
             elif game_type == 2:
                 print("Player one wins! Congratulations")
-            return_to_main_page()
+            show_scores_or_quit()
 
         print_game_field()
         # Condition to check if the grid is full to declare no winners.
         if draw(game_field):
             increment_draws_in_spreadsheet()
             print("2 winners! It's a draw!")
-            return_to_main_page()
+            show_scores_or_quit()
 
         # Condition to check if the game type is against the computer.
         if game_type == 1:
@@ -417,13 +418,13 @@ def play_game():
                 print_game_field()
                 increment_loses_in_spreadsheet()
                 print("Computer wins!")
-                return_to_main_page()
+                show_scores_or_quit()
 
             # Condition to check if it's a draw.
             if draw(game_field):
                 increment_draws_in_spreadsheet()
                 print("2 winners! It's a draw!")
-                return_to_main_page()
+                show_scores_or_quit()
 
         # Condition to check if the game type is against a second player.
         if game_type == 2:
@@ -448,7 +449,7 @@ def play_game():
                 increment_loses_in_spreadsheet()
                 print_game_field()
                 print(f"Player two '{opponent_symbol_choice}' is the winner!")
-                return_to_main_page()
+                show_scores_or_quit()
 
             print_game_field()
 
@@ -456,22 +457,21 @@ def play_game():
             if draw(game_field):
                 increment_draws_in_spreadsheet()
                 print("2 winners! It's a draw!")
-                return_to_main_page()
+                show_scores_or_quit()
 
 # Function to return to the main page.
 
 
-def return_to_main_page():
+def show_scores_or_quit():
     """
     User has to select to go back to the main page or quit the game.
     """
-    print("Would you like to go back to the main page?")
+    print("Would you like to see your scores?")
     print("Select '1' if yes or 'q' if you would like to quit the game. \n ")
     while True:
         player_choice = input().strip()
         if player_choice == "1":
-            reset_game_field()
-            show_choices_and_take_input()
+            show_scores()
         elif player_choice == "q":
             quit_game()
         else:

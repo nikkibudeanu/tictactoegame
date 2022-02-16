@@ -185,40 +185,40 @@ The features of TICTACTOE include:
 
 ## 3. STRUCTURE
 
-###  Game name
+* ###  Game name
 A printed out section with the name of the game. 
 
-### Username input
+* ### Username input
 Input your username in order to be able to track your score.
 
-### Game menu
+* ### Game menu
 Select from the menu : how to play/ your score/play game/ quit game. 
 
-### Game type : vs computer/ 2nd player
+* ### Game type : vs computer/ 2nd player
 Select the game type you wish to play: vs computer  or vs a second player if you are going to play it with your friend.
 
-### Select symbol
+* ### Select symbol
 Pick your symbol: "x" or "o".
 
-###  Game vs computer
+* ###  Game vs computer
 Play against the computer, take turns and the computer will randomly place its symbol on the grid. 
 
-###  Game vs player
+* ###  Game vs player
 Play against a second player/your friend, select the symbol and take turns. 
 
-###  Game over
+* ###  Game over
 On this section, you will be able to see if you won, lost or if it is a draw game. You can also choose to quit the game or go back to the main menu. 
 
-###  Game quit
+* ###  Game quit
 If you select 'q' you will quit the game. 
 
-###  How to play section
+* ###  How to play section
 In this section, you will have step-by-step instructions on how to play the game. 
 
-### Print scores section
+* ### Print scores section
 Here, you will be able to see your scores, how many games played, won, lost or draw games. It will fetch data from the google sheet. 
 
-###  Google spreadhseet 
+* ###  Google spreadhseet 
 This sheet is used to track usernames and their scores: total games played, the amount of times you lost or won and the draw games. 
 
 To access the spreadsheet, click on the link below:
@@ -257,14 +257,20 @@ Before starting the game, I have created the structure in the following chart I 
 
 # Testing
 
+
 <span id="validator-testing"></span>
+
 
 ## Manual
 
+1. All features have been tested manually: all inputs work as expected.
+2. The program has passed through PEP8 Linter: all code came back with no errors.
 
 <span id="testing-unresolved"></span>
 
+
 ## Unsolved bugs
+1. When fetching data from the GSheet, the user gets his scores in the "Your scores" section. However, if he played more than 1 games in a row without quitting and running the program again with the same username, only the score for the last game is showing up in the "your score" section. The sheet captures the scores for both games. As a temporary solution, I restricted the user to play again without entering the username again so it counts each game's score.
 
 
 
@@ -278,6 +284,10 @@ Before starting the game, I have created the structure in the following chart I 
 
 
 <span id="heroku"></span>
+
+Before deploying it to Heroku, some steps in Gihub have been taken. 
+* Creds.json file was restricted and added in the .gitignore file
+* Requirements have been created. 
 
 ## Heroku
 In order to deploy TicTacToe, I have used Heroku:
