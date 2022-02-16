@@ -14,6 +14,7 @@ TicTacToe or Xs and Os is a 2 player game in which the players seek in alternate
 - <a href="#features">Features</a>
   - <a href="#actual-features">Actual Features</a>
   - <a href="#potential-features">Potential Features</a>
+- <a href="#data">OOP</a>
 - <a href="#ux">UX</a>
   - <a href="#strategy">STRATEGY</a>
      - <a href="#ux-stories">User stories</a>
@@ -127,6 +128,18 @@ https://docs.google.com/spreadsheets/d/1qNO7whX-pyrPtZ-PSyqpUHc2fnZQ5o0hCLZHpC5S
 *  Show high scores.
 *  Track 2nd player's score.
 *  Ability to pick difficulty and increment the number of squares in the field.
+
+<div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
+<span id="ux"></span>
+
+# OOP
+
+<span id="data"></span>
+
+As data model, I have used lists to create the game field and for the symbols: 
+'x_or_o' and 'game_field' as well as 'rows_matching_username' in the 'show_scores' function to fetch data from the GSpread.
+
+
 
 <div align="right"><a style="text-align:right" href="#top">Go to table of contents :arrow_double_up:</a></div>
 <span id="ux"></span>

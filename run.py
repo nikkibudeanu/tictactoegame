@@ -456,7 +456,7 @@ def play_game():
             # Condition to check if it's a draw
             if draw(game_field):
                 increment_draws_in_spreadsheet()
-                print("2 winners! It's a draw!")
+                print("2 winners! It's a draw!\n")
                 show_scores_or_quit()
 
 # Function to return to the main page.
