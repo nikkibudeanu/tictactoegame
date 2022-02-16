@@ -264,8 +264,8 @@ def show_scores():
         elif player_choice == "q":
             quit_game()
         else:
-            print("Invalid input,select '0' to return to the main page.")
-            print("If you want to quit the game, please select 'q'.")
+            print("Invalid input,select '0' to return to the main page.\n")
+            print("If you want to quit the game, please select 'q'.\n")
 
 # Function to determine the winner.
 
